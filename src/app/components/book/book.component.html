@@ -1,7 +1,26 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
 <table class="table">
+    <thead *ngIf="dataLoaded==true">
+        <tr>
+            <th>Id</th>
+            <th>Book Name</th>
+            <th>Category Name</th>
+            <th>Author First name</th>
+            <th>Author Last name</th>
+            <th>Published Year</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
     <tr *ngFor="let book of books">
+        <td>{{book.id}}</td>
         <td>{{book.bookName}}</td>
-        <td>{{book.bookId}}</td>
-        <td>{{book.categoryId}}</td>
+        <td>{{book.categoryName}}</td>
+        <td>{{book.authorFirstName}}</td>
+        <td>{{book.authorLastName}}</td>
+        <td>{{book.publishedYear}}</td>
+        <td>{{book.summary}}</td>
     </tr>
 </table>

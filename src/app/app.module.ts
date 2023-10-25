@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CategoryComponent } from './components/category/category.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthorComponent } from './components/author/author.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     NaviComponent,
-    CategoryComponent
+    CategoryComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

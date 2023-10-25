@@ -1,1 +1,16 @@
-<p>category works!</p>
+<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<table class="table">
+    <thead *ngIf="dataLoaded==true">
+        <tr>
+            <th>Id</th>
+            <th>Category Name</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let category of categories">
+        <td>{{category.categoryId}}</td>
+        <td>{{category.categoryName}}</td>
+    </tr>
+</table>
