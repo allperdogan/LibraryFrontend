@@ -2,15 +2,17 @@
     <span class="visually-hidden">Loading...</span>
 </div>
 
-<table class="table">
-    <thead *ngIf="dataLoaded==true">
-        <tr>
-            <th>Id</th>
-            <th>Category Name</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let category of categories">
-        <td>{{category.categoryId}}</td>
-        <td>{{category.categoryName}}</td>
-    </tr>
-</table>
+<ul class="list-group">
+    <h5 style="text-align: center;"> Categories </h5> 
+    <li routerLink="/books"
+    (click)="setAllCategory()" 
+    [class] = "getAllCategoryClass()">All Categories</li>
+    <li (click)="setCurrentCategory(category)" 
+    routerLink="/books/category/{{category.categoryId}}"
+    *ngFor="let category of categories"
+    [class]="getCurrentCategoryClass(category)">
+        {{category.categoryName}}
+    </li>
+</ul>
+
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}} seçtiniz</h5>

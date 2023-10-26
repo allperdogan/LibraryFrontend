@@ -9,6 +9,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 export class CategoryComponent {
   categories: Category[] = [];
+  currentCategory: Category | undefined;
   dataLoaded = false;
   constructor(private categoryService: CategoryService) {
     
@@ -22,5 +23,29 @@ export class CategoryComponent {
       this.categories  = response.data
       this.dataLoaded = true;
     })
+  }
+
+  setCurrentCategory(category:Category){
+    this.currentCategory = category;
+  }
+
+  getCurrentCategoryClass(category:Category){
+    if(category == this.currentCategory){
+      return "list-group-item active"
+    }
+    else{
+      return "list-group-item"
+    }
+  }
+  setAllCategory(){
+    this.currentCategory = undefined;
+  }
+  getAllCategoryClass(){
+    if(this.currentCategory){
+      return "list-group-item"
+    }
+    else{
+      return "list-group-item active"
+    }
   }
 }

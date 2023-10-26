@@ -5,7 +5,6 @@
 <table class="table">
     <thead *ngIf="dataLoaded==true">
         <tr>
-            <th>Id</th>
             <th>Book Name</th>
             <th>Category Name</th>
             <th>Author First name</th>
@@ -14,9 +13,10 @@
             <th>Summary</th>
         </tr>
     </thead>
-    <tr *ngFor="let book of books">
-        <td>{{book.id}}</td>
-        <td>{{book.bookName}}</td>
+    <tr (click)="setCurrentBook(book)" *ngFor="let book of books" routerLink="/books/{{book.id}}">
+        <td 
+        
+        >{{book.bookName}}</td>
         <td>{{book.categoryName}}</td>
         <td>{{book.authorFirstName}}</td>
         <td>{{book.authorLastName}}</td>
