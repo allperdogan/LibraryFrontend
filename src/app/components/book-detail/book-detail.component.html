@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Category Name</th>
+            <th>Author First name</th>
+            <th>Author Last name</th>
+            <th>Published Year</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tr *ngIf="book">
+        <td>{{book.bookName}}</td>
+        <td>{{book.categoryName}}</td>
+        <td>{{book.authorFirstName}}</td>
+        <td>{{book.authorLastName}}</td>
+        <td>{{book.publishedYear}}</td>
+        <td>{{book.summary}}</td>
+    </tr>
+</table>
+<img src="{{imagePath}}{{book.imagePath}}" alt="">

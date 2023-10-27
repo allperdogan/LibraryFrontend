@@ -8,4 +8,6 @@ export interface Book{
     bookName:string;
     publishedYear:number;
     summary:string;
+    imagePath:string;
+    date:string;
 }

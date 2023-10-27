@@ -8,6 +8,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorComponent } from './components/author/author.component';
+import { BookDetailComponent } from './components/book-detail/book-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AuthorComponent } from './components/author/author.component';
     BookComponent,
     NaviComponent,
     CategoryComponent,
-    AuthorComponent
+    AuthorComponent,
+    BookDetailComponent
   ],
   imports: [
     BrowserModule,
