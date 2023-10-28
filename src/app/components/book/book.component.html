@@ -1,26 +1,29 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-
+<div>
+    <h5 class="text-center">Kitaplar</h5>
+</div>
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Kitap ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+    {{filterText}} aradınız.
+</div>
 <table class="table">
     <thead *ngIf="dataLoaded==true">
         <tr>
-            <th>Book Name</th>
-            <th>Category Name</th>
-            <th>Author First name</th>
-            <th>Author Last name</th>
-            <th>Published Year</th>
-            <th>Summary</th>
+            <th>Kitap</th>
+            <th>Yazar</th>
+            <th>Kategori</th>
         </tr>
     </thead>
-    <tr (click)="setCurrentBook(book)" *ngFor="let book of books" routerLink="/books/{{book.id}}">
-        <td 
-        
-        >{{book.bookName}}</td>
-        <td>{{book.categoryName}}</td>
-        <td>{{book.authorFirstName}}</td>
-        <td>{{book.authorLastName}}</td>
-        <td>{{book.publishedYear}}</td>
-        <td>{{book.summary}}</td>
-    </tr>
+    <tbody>
+        <tr (click)="setCurrentBook(book)" *ngFor="let book of books | filterPipeBook:filterText" routerLink="/books/{{book.id}}">
+            <td>{{book.bookName}}</td>
+            <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
+            <td>{{book.categoryName}}</td>
+        </tr>
+    </tbody>  
 </table>

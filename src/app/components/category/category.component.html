@@ -3,13 +3,20 @@
 </div>
 
 <ul class="list-group">
-    <h5 style="text-align: center;"> Categories </h5> 
+    <h5 style="text-align: center;"> Kategoriler </h5> 
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Kategori ara</label>
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+    </div>
+    <div *ngIf="filterText" class="alert alert-success">
+        {{filterText}} aradınız.
+    </div>
     <li routerLink="/books"
     (click)="setAllCategory()" 
-    [class] = "getAllCategoryClass()">All Categories</li>
+    [class] = "getAllCategoryClass()">Tüm Kategoriler</li>
     <li (click)="setCurrentCategory(category)" 
     routerLink="/books/category/{{category.categoryId}}"
-    *ngFor="let category of categories"
+    *ngFor="let category of categories |filterPipeCategory:filterText"
     [class]="getCurrentCategoryClass(category)">
         {{category.categoryName}}
     </li>

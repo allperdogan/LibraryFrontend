@@ -10,7 +10,8 @@ import { AuthorService } from 'src/app/services/authors/author.service';
 export class AuthorComponent {
   authors: Author[] = [];
   dataLoaded = false;
-  public currentAuthor: Author;
+  filterText="";
+  public currentAuthor: Author | undefined; 
   constructor(private authorService: AuthorService) {
     
   }
@@ -36,6 +37,17 @@ export class AuthorComponent {
     }
     else{
       return "list-group-item"
+    }
+  }
+  setAllAuthor(){
+    this.currentAuthor = undefined;
+  }
+  getAllAuthorClass(){
+    if(this.currentAuthor){
+      return "list-group-item"
+    }
+    else{
+      return "list-group-item active"
     }
   }
 }

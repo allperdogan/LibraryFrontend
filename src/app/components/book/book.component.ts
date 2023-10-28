@@ -12,6 +12,7 @@ export class BookComponent implements OnInit {
   books: Book[] = [];
   dataLoaded = false;
   currentBook:Book;
+  filterText="";
   constructor(private bookService: BookService,private activatedRoute:ActivatedRoute) {
     
   }

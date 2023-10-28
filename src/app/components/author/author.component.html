@@ -3,10 +3,20 @@
 </div>
 
 <ul class="list-group">
-    <h5 style="text-align: center;"> Authors </h5> 
+    <h5 style="text-align: center;"> Yazarlar </h5> 
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Yazar ara</label>
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
+    </div>
+    <div *ngIf="filterText" class="alert alert-success">
+        {{filterText}} aradınız.
+    </div>
+    <li routerLink="/books"
+    (click)="setAllAuthor()" 
+    [class] = "getAllAuthorClass()">Tüm Yazarlar</li>
     <li (click)="setCurrentAuthor(author)" 
     routerLink="/books/author/{{author.authorId}}"
-    *ngFor="let author of authors"
+    *ngFor="let author of authors |filterPipeAuthor:filterText"
     [class]="getCurrentAuthorClass(author)">
         {{author.authorFirstName}} {{author.authorLastName}}
     </li>

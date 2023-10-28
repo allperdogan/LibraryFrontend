@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,9 @@ import { CategoryComponent } from './components/category/category.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorComponent } from './components/author/author.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { FilterPipeCategoryPipe } from './pipes/filter-pipe-category.pipe';
+import { FilterPipeAuthorPipe } from './pipes/filter-pipe-author.pipe';
+import { FilterPipeBookPipe } from './pipes/filter-pipe-book.pipe';
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
     NaviComponent,
     CategoryComponent,
     AuthorComponent,
-    BookDetailComponent
+    BookDetailComponent,
+    FilterPipeCategoryPipe,
+    FilterPipeAuthorPipe,
+    FilterPipeBookPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

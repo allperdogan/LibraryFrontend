@@ -1,21 +1,28 @@
+<div>
+    <h5>{{book.bookName}} kitabı hakkında</h5>
+</div>
 <table class="table">
     <thead>
         <tr>
-            <th>Book Name</th>
-            <th>Category Name</th>
-            <th>Author First name</th>
-            <th>Author Last name</th>
-            <th>Published Year</th>
-            <th>Summary</th>
+            <th>Kitap</th>
+            <th>Kategori</th>
+            <th>Yazar</th>
+            <th>Yayınlanma tarihi</th>
+            <th></th>
         </tr>
     </thead>
-    <tr *ngIf="book">
-        <td>{{book.bookName}}</td>
-        <td>{{book.categoryName}}</td>
-        <td>{{book.authorFirstName}}</td>
-        <td>{{book.authorLastName}}</td>
-        <td>{{book.publishedYear}}</td>
-        <td>{{book.summary}}</td>
-    </tr>
+    <tbody>
+        <tr *ngIf="book">
+            <td>{{book.bookName}}</td>
+            <td>{{book.categoryName}}</td>
+            <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
+            <td>{{book.publishedYear}}</td>
+            <td><button class="btn btn-success">Rezervasyon oluştur</button></td>
+        </tr>
+    </tbody>
 </table>
-<img src="{{imagePath}}{{book.imagePath}}" alt="">
+<div>
+    <h5>Özet</h5>
+    <p>{{book.summary}}</p>
+</div>
+<img src="{{imagePath}}{{book.imagePath}}" alt="" width="200" height="300">
