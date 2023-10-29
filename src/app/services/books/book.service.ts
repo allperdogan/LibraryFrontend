@@ -31,4 +31,9 @@ export class BookService {
     let newPath = this.apiUrl + "books/getbyid?bookId="+id; 
     return this.httpClient.get<SingleResponseModel<Book>>(newPath);
   }
+
+  add(book:Book):Observable<ListResponseModel<Book>>{
+    return this.httpClient.post<ListResponseModel<Book>>(this.apiUrl+"books/add",book);
+  }
+
 }

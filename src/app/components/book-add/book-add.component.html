@@ -1,0 +1,60 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Ürün ekle</h5></div>
+            <div class="card-body">
+                <form [formGroup]="bookAddForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="bookName">Kitap adı</label>
+                            <input type="text" id="bookName" formControlName="bookName" class="form-control" placeholder="Kitap adı">
+                        </div>
+                        <div class="mb-3">
+                            <label for="categoryId">Kategori</label>
+                            <input type="number" id="categoryId" formControlName="categoryId" class="form-control" placeholder="Kategori">
+                        </div>
+                        <div class="mb-3">
+                            <label for="authorId">Yazar</label>
+                            <input type="number" id="authorId" formControlName="authorId" class="form-control" placeholder="Yazar">
+                        </div>
+                        <div class="mb-3">
+                            <label for="publishedYear">Yayınlanma Tarihi</label>
+                            <input type="text" id="publishedYear" formControlName="publishedYear" class="form-control" placeholder="Fiyatı">
+                        </div>   
+                        <div class="mb-3">
+                            <label for="summary">Özet</label>
+                            <input type="text" id="summary" formControlName="summary" class="form-control" placeholder="Özet">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header"><h5 class="title">Resim ekle</h5></div>
+            <div class="card-body">
+                <form [formGroup]="bookImageAddForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="bookId">Kitap</label>
+                            <input type="text" id="bookId" formControlName="bookId" class="form-control" placeholder="Kitap Id">
+                        </div>
+                        <div class="mb-3">
+                            <label for="imagePath">Dosya türü</label>
+                            <input type="text" id="imagePath" formControlName="imagePath" class="form-control" placeholder="jpg">
+                        </div>
+                        <div class="mb-3">
+                            <label for="file">Dosya</label>
+                            <input type="file" id="file" formControlName="file" class="form-control" placeholder="Dosya">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="addImage()">Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>

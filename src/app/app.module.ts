@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,10 @@ import { BookDetailComponent } from './components/book-detail/book-detail.compon
 import { FilterPipeCategoryPipe } from './pipes/filter-pipe-category.pipe';
 import { FilterPipeAuthorPipe } from './pipes/filter-pipe-author.pipe';
 import { FilterPipeBookPipe } from './pipes/filter-pipe-book.pipe';
+import { BookAddComponent } from './components/book-add/book-add.component';
+
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,13 +28,19 @@ import { FilterPipeBookPipe } from './pipes/filter-pipe-book.pipe';
     BookDetailComponent,
     FilterPipeCategoryPipe,
     FilterPipeAuthorPipe,
-    FilterPipeBookPipe
+    FilterPipeBookPipe,
+    BookAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

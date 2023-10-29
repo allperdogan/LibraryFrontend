@@ -10,4 +10,6 @@ export interface Book{
     summary:string;
     imagePath:string;
     date:string;
+    file:File;
+    bookId:number
 }

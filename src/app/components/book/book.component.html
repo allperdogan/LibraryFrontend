@@ -8,9 +8,6 @@
     <label for="exampleFormControlInput1" class="form-label">Kitap ara</label>
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
 </div>
-<div *ngIf="filterText" class="alert alert-success">
-    {{filterText}} aradınız.
-</div>
 <table class="table">
     <thead *ngIf="dataLoaded==true">
         <tr>
