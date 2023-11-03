@@ -1,0 +1,23 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Yazar sil</h5></div>
+            <div class="card-body">
+                <form [formGroup]="authorDeleteForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="authorId">Yazar</label>
+                            <select class="form-control" id="authorId" formControlName="authorId" aria-label="Default select example">
+                                <option selected disabled>Yazar seçiniz</option>
+                                <option *ngFor="let author of authors" value={{author.authorId}}>{{author.authorFirstName}} {{author.authorLastName}}</option>
+                              </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="delete()">Sil</button>
+            </div>
+        </div>
+    </div>
+</div>

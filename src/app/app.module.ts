@@ -23,6 +23,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { AuthorAddComponent } from './components/author-add/author-add.component';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
+import { AuthorDeleteComponent } from './components/author-delete/author-delete.component';
+import { AuthorUpdateComponent } from './components/author-update/author-update.component';
+import { CategoryUpdateComponent } from './components/category-update/category-update.component';
+import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { CategoryDeleteComponent } from './components/category-delete/category-d
     RegisterComponent,
     CategoryAddComponent,
     AuthorAddComponent,
-    CategoryDeleteComponent
+    CategoryDeleteComponent,
+    AuthorDeleteComponent,
+    AuthorUpdateComponent,
+    CategoryUpdateComponent,
+    BookDeleteComponent
   ],
   imports: [
     BrowserModule,

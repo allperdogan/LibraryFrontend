@@ -18,4 +18,12 @@ export class AuthorService {
   add(author:Author):Observable<ListResponseModel<Author>>{
     return this.httpClient.post<ListResponseModel<Author>>(this.apiUrl+"authors/add",author);
   }
+
+  delete(author:Author):Observable<ListResponseModel<Author>>{
+    return this.httpClient.post<ListResponseModel<Author>>(this.apiUrl+"authors/delete",author);
+  }
+
+  update(author:Author):Observable<ListResponseModel<Author>>{
+    return this.httpClient.post<ListResponseModel<Author>>(this.apiUrl+"authors/update",author);
+  }
 }

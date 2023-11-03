@@ -1,0 +1,68 @@
+<div class="modal-body">
+    <form [formGroup]="authorUpdateForm">
+        <div class="mb-3">
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="authorId">Yazar</label>
+                    <select class="form-control" id="authorId" formControlName="authorId" aria-label="Default select example">
+                        <option selected disabled>Yazar seçiniz</option>
+                        <option *ngFor="let author of authors" value={{author.authorId}}>{{author.authorFirstName}} {{author.authorLastName}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getById()">
+        Güncelle
+    </button> 
+</div>
+
+<!--Update Modal-->
+<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Markayı Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="authorUpdateForm">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="authorId">Id:</label>
+                            <input 
+                            type="text" 
+                            id="authorId" 
+                            formControlName="authorId"
+                            class="form-control" 
+                            [placeholder]="authorId">
+                            <label for="authorFirstName">Yazar ismi:</label>
+                            <input 
+                            type="text" 
+                            id="authorFirstName" 
+                            formControlName="authorFirstName"
+                            class="form-control" 
+                            [placeholder]="getFirstName()">
+                            <label for="authorLastName">Yazar soyismi:</label>
+                            <input 
+                            type="text" 
+                            id="authorLastName" 
+                            formControlName="authorLastName"
+                            class="form-control" 
+                            [placeholder]="getLastName()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="update()">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Update Modal-->
+

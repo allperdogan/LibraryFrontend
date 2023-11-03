@@ -23,4 +23,8 @@ export class CategoryService {
   delete(category:Category):Observable<ListResponseModel<Category>>{
     return this.httpClient.post<ListResponseModel<Category>>(this.apiUrl+"categories/delete",category);
   }
+
+  update(category:Category):Observable<ListResponseModel<Category>>{
+    return this.httpClient.post<ListResponseModel<Category>>(this.apiUrl+"categories/update",category);
+  }
 }

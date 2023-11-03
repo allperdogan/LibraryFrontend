@@ -9,6 +9,10 @@ import { LoginGuard } from './guards/login.guard';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { AuthorAddComponent } from './components/author-add/author-add.component';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
+import { AuthorDeleteComponent } from './components/author-delete/author-delete.component';
+import { AuthorUpdateComponent } from './components/author-update/author-update.component';
+import { CategoryUpdateComponent } from './components/category-update/category-update.component';
+import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:BookComponent},
@@ -21,7 +25,11 @@ const routes: Routes = [
   {path:"register",component:RegisterComponent},
   {path:"category/add",component:CategoryAddComponent},
   {path:"author/add",component:AuthorAddComponent},
-  {path:"category/delete",component:CategoryDeleteComponent}
+  {path:"category/delete",component:CategoryDeleteComponent},
+  {path:"author/delete",component:AuthorDeleteComponent},
+  {path:"author/update",component:AuthorUpdateComponent},
+  {path:"category/update",component:CategoryUpdateComponent},
+  {path:"book/delete",component:BookDeleteComponent}
 ];
 
 @NgModule({
