@@ -9,7 +9,7 @@ import { BookService } from 'src/app/services/books/book.service';
   styleUrls: ['./book.component.css'],
 })
 export class BookComponent implements OnInit {
-  books: Book[] = [];
+  books: Book[] = []
   dataLoaded = false;
   currentBook:Book;
   filterText="";

@@ -8,8 +8,8 @@ export interface Book{
     bookName:string;
     publishedYear:number;
     summary:string;
-    imagePath:string;
-    date:string;
-    file:File;
-    bookId:number
+    imagePath:string | undefined;
+    date:string | undefined;
+    file:File | undefined;
+    bookId:number | undefined;
 }

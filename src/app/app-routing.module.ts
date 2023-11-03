@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { AuthorAddComponent } from './components/author-add/author-add.component';
+import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:BookComponent},
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
   {path:"category/add",component:CategoryAddComponent},
-  {path:"author/add",component:AuthorAddComponent}
+  {path:"author/add",component:AuthorAddComponent},
+  {path:"category/delete",component:CategoryDeleteComponent}
 ];
 
 @NgModule({

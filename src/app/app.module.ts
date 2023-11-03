@@ -22,6 +22,7 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
 import { AuthorAddComponent } from './components/author-add/author-add.component';
+import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthorAddComponent } from './components/author-add/author-add.component
     LoginComponent,
     RegisterComponent,
     CategoryAddComponent,
-    AuthorAddComponent
+    AuthorAddComponent,
+    CategoryDeleteComponent
   ],
   imports: [
     BrowserModule,
