@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CategoryComponent } from './components/category/category.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthorComponent } from './components/author/author.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { FilterPipeCategoryPipe } from './pipes/filter-pipe-category.pipe';
@@ -17,6 +17,11 @@ import { BookAddComponent } from './components/book-add/book-add.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { CategoryAddComponent } from './components/category-add/category-add.component';
+import { AuthorAddComponent } from './components/author-add/author-add.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FilterPipeCategoryPipe,
     FilterPipeAuthorPipe,
     FilterPipeBookPipe,
-    BookAddComponent
+    BookAddComponent,
+    LoginComponent,
+    RegisterComponent,
+    CategoryAddComponent,
+    AuthorAddComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +51,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

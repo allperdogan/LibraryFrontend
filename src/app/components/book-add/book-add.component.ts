@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Author } from 'src/app/models/author';
+import { Category } from 'src/app/models/category';
+import { AuthorService } from 'src/app/services/authors/author.service';
 import { BookImageService } from 'src/app/services/books/book-image.service';
 import { BookService } from 'src/app/services/books/book.service';
+import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
   selector: 'app-book-add',
@@ -11,13 +15,17 @@ import { BookService } from 'src/app/services/books/book.service';
 })
 export class BookAddComponent implements OnInit{
 
+  categories: Category[]=[]
+  authors: Author[]=[]
   bookAddForm:FormGroup
   bookImageAddForm:FormGroup
   
-  constructor(private formBuilder:FormBuilder, private bookService:BookService, 
-    private toastrService:ToastrService, private bookImageService:BookImageService) { }
+  constructor(private formBuilder:FormBuilder, private bookService:BookService, private categoryService:CategoryService,
+    private authorService:AuthorService ,private toastrService:ToastrService, private bookImageService:BookImageService) { }
 
   ngOnInit(): void {
+    this.getCategories();
+    this.getAuthors();
     this.createBookAddForm();
     this.createBookImageAddForm();
   }
@@ -78,5 +86,14 @@ export class BookAddComponent implements OnInit{
     }
   }
 
-
+  getCategories(){
+    this.categoryService.getCategories().subscribe((response)=>{
+      this.categories  = response.data
+    })
+  }
+  getAuthors(){
+    this.authorService.getAuthors().subscribe((response)=>{
+      this.authors  = response.data
+    })
+  }
 }

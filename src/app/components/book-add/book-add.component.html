@@ -11,11 +11,17 @@
                         </div>
                         <div class="mb-3">
                             <label for="categoryId">Kategori</label>
-                            <input type="number" id="categoryId" formControlName="categoryId" class="form-control" placeholder="Kategori">
+                            <select class="form-control" id="categoryId" formControlName="categoryId" aria-label="Default select example">
+                                <option selected disabled>Kategori ismi seçiniz</option>
+                                <option *ngFor="let category of categories" value={{category.categoryId}}>{{category.categoryName}}</option>
+                              </select>
                         </div>
                         <div class="mb-3">
                             <label for="authorId">Yazar</label>
-                            <input type="number" id="authorId" formControlName="authorId" class="form-control" placeholder="Yazar">
+                            <select class="form-control" id="authorId" formControlName="authorId" aria-label="Default select example">
+                                <option selected disabled>Yazar seçiniz</option>
+                                <option *ngFor="let author of authors" value={{author.authorId}}>{{author.authorFirstName}} {{author.authorLastName}}</option>
+                              </select>
                         </div>
                         <div class="mb-3">
                             <label for="publishedYear">Yayınlanma Tarihi</label>

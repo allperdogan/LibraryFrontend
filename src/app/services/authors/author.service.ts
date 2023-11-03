@@ -8,10 +8,14 @@ import { ListResponseModel } from 'src/app/models/listResponseModel';
   providedIn: 'root'
 })
 export class AuthorService {
-  apiUrl = "https://localhost:44304/api/authors/getall";
+  apiUrl = "https://localhost:44304/api/";
   constructor(private httpClient: HttpClient) { }
 
   getAuthors():Observable<ListResponseModel<Author>> {
-    return this.httpClient.get<ListResponseModel<Author>>(this.apiUrl);
+    return this.httpClient.get<ListResponseModel<Author>>(this.apiUrl+"authors/getall");
+  }
+
+  add(author:Author):Observable<ListResponseModel<Author>>{
+    return this.httpClient.post<ListResponseModel<Author>>(this.apiUrl+"authors/add",author);
   }
 }

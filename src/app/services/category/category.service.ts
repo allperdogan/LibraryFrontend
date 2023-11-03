@@ -9,10 +9,18 @@ import { ListResponseModel } from 'src/app/models/listResponseModel';
   providedIn: 'root'
 })
 export class CategoryService {
-  apiUrl = "https://localhost:44304/api/Categories/getall";
+  apiUrl = "https://localhost:44304/api/";
   constructor(private httpClient: HttpClient) { }
 
   getCategories():Observable<ListResponseModel<Category>> {
-    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl);
+    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl+"Categories/getall");
+  }
+
+  add(category:Category):Observable<ListResponseModel<Category>>{
+    return this.httpClient.post<ListResponseModel<Category>>(this.apiUrl+"categories/add",category);
+  }
+
+  delete(category:Category):Observable<ListResponseModel<Category>>{
+    return this.httpClient.post<ListResponseModel<Category>>(this.apiUrl+"categories/delete",category);
   }
 }
