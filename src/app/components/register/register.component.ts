@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { RegisterModel } from 'src/app/models/registerModel';
+import { UserDetail } from 'src/app/models/userDetail';
 import { AuthService } from 'src/app/services/auth.service';
+import { LocalService } from 'src/app/services/local.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -10,34 +15,57 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  signForm:FormGroup;
-  constructor(private formBuilder:FormBuilder, private authService:AuthService, private toastrService:ToastrService) { }
-  
-    ngOnInit(): void {
-      this.createLoginForm();
-    }
-  
-    createLoginForm(){
-      this.signForm = this.formBuilder.group({
-        email:["",Validators.required],
-        password:["",Validators.required],
-        firstName:["",Validators.required],
-        lastName:["",Validators.required]
-      })
-    }
-  
-    sign(){
-      if(this.signForm.valid){
-        console.log(this.signForm.value);
-        let signModel = Object.assign({},this.signForm.value)
-  
-        this.authService.sign(signModel).subscribe(response=>{
-          this.toastrService.info(response.message)
-          localStorage.setItem("token",response.data.token)
-        },responseError=>{
-          //console.log(responseError)
-          this.toastrService.error(responseError.error)
+  registerForm:FormGroup
+  userDetail:UserDetail
+
+  constructor(private formBuilder:FormBuilder,
+    private authService:AuthService,
+    private userService:UserService,
+    private localService:LocalService,
+    private toastrService:ToastrService,
+    private router:Router) { }
+
+  ngOnInit(): void {
+    this.createRegisterForm()
+  }
+
+  createRegisterForm(){
+    this.registerForm = this.formBuilder.group({
+      firstName:["",Validators.required],
+      lastName:["",Validators.required],
+      email:["",Validators.required],
+      password:["",Validators.required],
+      passwordRepeat:["",Validators.required],   
+    })
+  }
+
+  register(){
+    if (this.registerForm.valid) {
+      if (this.registerForm.value.password === this.registerForm.value.passwordRepeat) {
+        let registerModel:RegisterModel = Object.assign({} , this.registerForm.value)
+
+      this.authService.register(registerModel).subscribe((response) => {
+        console.log(response)
+        this.router.navigate(["/"])
+        this.toastrService.success("Hesap oluşturuldu" , "İşlem başarılı!")
+        this.toastrService.info("Giriş yapıldı." , "Bilgilendirme!")
+        this.localService.add("token" , response.data.token)
+        this.userService.getUserDetailsByEmail(this.registerForm.value.email).subscribe((response) => { 
+          this.userDetail = response.data
+          this.localService.add("user_details" , JSON.stringify(this.userDetail))
+          window.location.reload()
+          this.router.navigate(["/cars"]) 
         })
+      },(responseError) => {
+        this.toastrService.error(responseError.error , "İşlem başarısız!");
+        
+      })
+      }else{
+        this.toastrService.error("Şifre ve şifre tekrarı eşleşmiyor. Lütfen tekrar deneyiniz." , "İşlem başarısız!")
       }
+      
+    }else{
+      this.toastrService.error("Form bilgileri eksik." , "İşlem başarısız!")
     }
+  }
   }

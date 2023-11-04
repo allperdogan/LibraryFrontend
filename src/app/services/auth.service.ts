@@ -1,32 +1,36 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginModel } from '../models/loginModel';
-import { TokenModel } from '../models/tokenModel';
+import { Token } from '../models/token';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { RegisterModel } from '../models/registerModel';
+import { LocalService } from './local.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl = 'https://localhost:44304/api/auth/';
+  apiUrl = 'https://localhost:44304/api/';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient:HttpClient,
+    private localService:LocalService) { }
 
-  login(loginModel:LoginModel) {
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
+  login(loginModel:LoginModel):Observable<SingleResponseModel<Token>>{
+    let apiUrl = this.apiUrl + "auth/login"
+    return this.httpClient.post<SingleResponseModel<Token>>(apiUrl , loginModel)
   }
 
-  sign(registerModel:RegisterModel) {
-    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+"register",registerModel)
+  register(registerModel:RegisterModel):Observable<SingleResponseModel<Token>>{
+    let apiUrl = this.apiUrl + "auth/register"
+    return this.httpClient.post<SingleResponseModel<Token>>(apiUrl , registerModel)
   }
-  
+
   isAuthenticated(){
-    if(localStorage.getItem("token")){
-      return true;
-    }
-    else{
-      return false;
+    if (this.localService.getItem("token") && this.localService.getItem("user_details")) {
+      return true
+    }else{
+      return false
     }
   }
 }
