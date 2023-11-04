@@ -27,6 +27,7 @@ import { AuthorDeleteComponent } from './components/author-delete/author-delete.
 import { AuthorUpdateComponent } from './components/author-update/author-update.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
+import { BookUpdateComponent } from './components/book-update/book-update.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { BookDeleteComponent } from './components/book-delete/book-delete.compon
     AuthorDeleteComponent,
     AuthorUpdateComponent,
     CategoryUpdateComponent,
-    BookDeleteComponent
+    BookDeleteComponent,
+    BookUpdateComponent
   ],
   imports: [
     BrowserModule,

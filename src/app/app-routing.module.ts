@@ -13,6 +13,7 @@ import { AuthorDeleteComponent } from './components/author-delete/author-delete.
 import { AuthorUpdateComponent } from './components/author-update/author-update.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
+import { BookUpdateComponent } from './components/book-update/book-update.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:BookComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path:"author/delete",component:AuthorDeleteComponent},
   {path:"author/update",component:AuthorUpdateComponent},
   {path:"category/update",component:CategoryUpdateComponent},
-  {path:"book/delete",component:BookDeleteComponent}
+  {path:"book/delete",component:BookDeleteComponent},
+  {path:"book/update",component:BookUpdateComponent}
 ];
 
 @NgModule({

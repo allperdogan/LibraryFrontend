@@ -1,0 +1,86 @@
+<div class="modal-body">
+    <form [formGroup]="bookUpdateForm">
+        <div class="mb-3">
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="id">Kitap</label>
+                    <select class="form-control" id="id" formControlName="id" aria-label="Default select example">
+                        <option selected disabled>Kitap seçiniz</option>
+                        <option *ngFor="let book of books" value={{book.id}}>{{book.bookName}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getById()">
+        Güncelle
+    </button> 
+</div>
+
+<!--Update Modal-->
+<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kitabı Güncelle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="bookUpdateForm">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="id">Id:</label>
+                                <input 
+                                type="text" 
+                                id="id" 
+                                formControlName="id"
+                                class="form-control" 
+                                [placeholder]="bookId"
+                                readonly>
+                            <label for="bookName">Kitap ismi:</label>
+                                <input 
+                                type="text" 
+                                id="bookName" 
+                                formControlName="bookName"
+                                class="form-control" 
+                                [value]="getBookName()">
+                            <label for="categoryId">Kategori</label>
+                                <select class="form-control" id="categoryId" formControlName="categoryId" aria-label="Default select example">
+                                    <option selected>{{getCategoryName()}} </option>
+                                    <option *ngFor="let category of categories" value={{category.categoryId}}>{{category.categoryName}}</option>
+                                </select>
+                            <label for="authorId">Yazar</label>
+                                <select class="form-control" id="authorId" formControlName="authorId" aria-label="Default select example">
+                                    <option selected> {{getAuthorName()}} {{getLastName()}}</option>
+                                    <option *ngFor="let author of authors" value={{author.authorId}}>{{author.authorFirstName}} {{author.authorLastName}}</option>
+                                </select>
+                            <label for="publishedYear">Yayınlanma tarihi:</label>
+                                <input 
+                                type="number" 
+                                id="publishedYear" 
+                                formControlName="publishedYear"
+                                class="form-control" 
+                                [value]="getPublishedYear()">
+                            <label for="summary">Özet:</label>
+                                <input 
+                                type="text" 
+                                id="summary" 
+                                formControlName="summary"
+                                class="form-control" 
+                                [value]="getSummary()">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="update()">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Update Modal-->
+

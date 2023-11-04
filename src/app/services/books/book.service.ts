@@ -35,8 +35,13 @@ export class BookService {
   add(book:Book):Observable<ListResponseModel<Book>>{
     return this.httpClient.post<ListResponseModel<Book>>(this.apiUrl+"books/add",book);
   }
+
   delete(book:Book):Observable<ListResponseModel<Book>>{
     return this.httpClient.post<ListResponseModel<Book>>(this.apiUrl+"books/delete",book);
+  }
+
+  update(book:Book):Observable<ListResponseModel<Book>>{
+    return this.httpClient.post<ListResponseModel<Book>>(this.apiUrl+"books/update",book);
   }
 
 }
