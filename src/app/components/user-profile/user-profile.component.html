@@ -1,16 +1,17 @@
 <div class="container">
     <div class="card" style="margin-top: 50px;">
         <div class="card-header">
-            <h6>Bilgilerim</h6>
+            <h4 class="title">Bilgilerim</h4>
         </div>
         <div class="card-body">
-            <h5 class="card-title">İsim-Soyisim</h5>
-            <p class="card-text">{{user.firstName}} {{user.lastName}}</p>
-        </div>
-        <hr class="dropdown-divider">
-        <div class="card-body">
-            <h5 class="card-title">Email</h5>
-            <p class="card-text">{{user.email}}</p>
+            <div class="mb-3">
+                <h5  class="card-title">İsim-Soyisim</h5>
+                <p *ngIf="user" class="card-text">{{user.firstName}} {{user.lastName}}</p> 
+            </div>
+            <div class="mb-3">
+                <h5 class="card-title">Email</h5>
+                <p *ngIf="user" class="card-text">{{user.email}}</p>
+            </div>
         </div>
     </div>
       <button type="button" class="btn btn-success" data-bs-toggle="modal" style="margin-top: 30px; float: right;" data-bs-target="#exampleModal">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { delay } from 'rxjs';
 import { UserDetail } from 'src/app/models/userDetail';
 import { LocalService } from 'src/app/services/local.service';
 
@@ -41,7 +42,6 @@ export class NaviComponent implements OnInit {
     this.localService.delete("user_details")
     this.localService.delete("claim")
     this.toastrService.info("Çıkış yapıldı.", "Bilgilendirme!")
-    this.router.navigate(["login"])
     window.location.reload()
   }
 

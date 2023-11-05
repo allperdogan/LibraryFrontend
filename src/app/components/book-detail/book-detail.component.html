@@ -1,5 +1,5 @@
 <div>
-    <h5>{{book.bookName}} kitabı hakkında</h5>
+    <h5 *ngIf="book">{{book.bookName}} kitabı hakkında</h5>
 </div>
 <table class="table">
     <thead>
@@ -23,6 +23,6 @@
 </table>
 <div>
     <h5>Özet</h5>
-    <p>{{book.summary}}</p>
+    <p *ngIf="book">{{book.summary}}</p>
 </div>
-<img src="{{imagePath}}{{book.imagePath}}" alt="" width="200" height="300">
+<img *ngIf="book" src="{{imagePath}}{{book.imagePath}}" alt="" width="200" height="300">
