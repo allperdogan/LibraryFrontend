@@ -14,7 +14,7 @@ import { UserForUpdateDto } from '../models/userForUpdateDto';
 })
 export class UserService {
 
-  apiUrl = 'https://localhost:44304/api/auth/';
+  apiUrl = 'https://localhost:44304/api/';
 
   constructor(private httpClient:HttpClient) { }
 

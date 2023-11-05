@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
           this.userDetail = response.data
           this.localService.add("user_details" , JSON.stringify(this.userDetail))
           window.location.reload()
-          this.router.navigate(["/cars"]) 
+          this.router.navigate(["/books"]) 
         })
       },(responseError) => {
         this.toastrService.error(responseError.error , "İşlem başarısız!");

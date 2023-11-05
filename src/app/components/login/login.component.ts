@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       this.toastrService.info(response.message , "Bilgilendirme!")
       this.localService.add("token" , response.data.token)
       this.getUserDetails()
+      this.router.navigate(["/books"])
     },(responseError) => {
       this.toastrService.error(responseError.error , "İşlem başarısız!")
     })
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit {
       this.getUserClaims()
       this.localService.add("user_details" , JSON.stringify(this.userDetail))
       window.location.reload()
-      this.router.navigate([""]) 
+      this.router.navigate(["/books"]) 
     })
   }
 

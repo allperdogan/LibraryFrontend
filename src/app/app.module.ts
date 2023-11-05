@@ -28,6 +28,7 @@ import { AuthorUpdateComponent } from './components/author-update/author-update.
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 import { BookUpdateComponent } from './components/book-update/book-update.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { BookUpdateComponent } from './components/book-update/book-update.compon
     AuthorUpdateComponent,
     CategoryUpdateComponent,
     BookDeleteComponent,
-    BookUpdateComponent
+    BookUpdateComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

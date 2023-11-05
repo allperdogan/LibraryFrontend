@@ -11,6 +11,7 @@ import { BookService } from 'src/app/services/books/book.service';
 export class BookDetailComponent implements OnInit{
   book: Book;
   imagePath = "https://localhost:44304/BookImages";
+  
   constructor(private bookService: BookService,private activatedRoute:ActivatedRoute){
     
   }

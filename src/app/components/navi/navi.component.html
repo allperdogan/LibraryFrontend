@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand btn" routerLink="/">Car Rental</a>
+    <a class="navbar-brand btn" routerLink="/">DigitaLibrary</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,7 +14,7 @@
       <div class="flex-d" *ngIf="isAuthorizated==true" style="margin-right: 50px;">
           <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              <!-- {{userDetails.firstName}} {{userDetails.lastName}} -->
+              {{userDetails.firstName}} {{userDetails.lastName}}
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
               <li><a class="dropdown-item btn" routerLink="/profile">Profilim</a></li>
