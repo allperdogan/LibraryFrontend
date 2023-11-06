@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder} from "@angular/forms"
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { delay } from 'rxjs';
 import { AppComponent } from 'src/app/app.component';
 import { OperationClaim } from 'src/app/models/operationClaim';
 import { UserDetail } from 'src/app/models/userDetail';
@@ -53,23 +54,26 @@ export class LoginComponent implements OnInit {
    }
   }
 
+  
+
   getUserClaims(){
     this.userService.getClaimsByUserId(this.userDetail.id).subscribe((response)=>{
       let claim:OperationClaim = response.data[0]
+      if(claim==null){
+        window.location.reload();
+      }
       console.log(claim)
       this.localService.add("user_claim",JSON.stringify(claim.name))
       console.log("claimadded")
+      window.location.reload();
     })
   }
 
   getUserDetails(){
     this.userService.getUserDetailsByEmail(this.loginForm.value.email).subscribe((response) => { 
       this.userDetail = response.data
-      console.log("here")
-      this.getUserClaims()
       this.localService.add("user_details" , JSON.stringify(this.userDetail))
-      window.location.reload()
-      this.router.navigate(["/books"]) 
+      this.getUserClaims()
     })
   }
 

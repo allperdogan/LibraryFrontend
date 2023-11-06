@@ -12,7 +12,8 @@ import { LocalService } from 'src/app/services/local.service';
 })
 export class NaviComponent implements OnInit {
 
-  isAuthorizated = false
+  isAuthorizated = false;
+  isAnAdmin = false;
   userDetails: UserDetail;
 
   constructor(private localService: LocalService,
@@ -22,6 +23,7 @@ export class NaviComponent implements OnInit {
   ngOnInit(): void {
     this.checkIsAuthorizated()
     this.getUserDetails()
+    this.isAdmin()
   }
 
 
@@ -40,9 +42,17 @@ export class NaviComponent implements OnInit {
   logOut() {
     this.localService.delete("token")
     this.localService.delete("user_details")
-    this.localService.delete("claim")
+    this.localService.delete("user_claim")
     this.toastrService.info("Çıkış yapıldı.", "Bilgilendirme!")
     window.location.reload()
   }
 
+  isAdmin(){
+    if (this.localService.getItem("user_claim")) {
+      this.isAnAdmin = true
+    }
+    else{
+      this.isAnAdmin = false
+    }
+  }
 }

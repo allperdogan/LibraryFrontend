@@ -7,14 +7,15 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginGuard } from './guards/login.guard';
 import { CategoryAddComponent } from './components/category-add/category-add.component';
-import { AuthorAddComponent } from './components/author-add/author-add.component';
+import { AuthorAddComponent } from './components/admin/author-add/author-add.component';
 import { CategoryDeleteComponent } from './components/category-delete/category-delete.component';
-import { AuthorDeleteComponent } from './components/author-delete/author-delete.component';
-import { AuthorUpdateComponent } from './components/author-update/author-update.component';
+import { AuthorDeleteComponent } from './components/admin/author-delete/author-delete.component';
+import { AuthorUpdateComponent } from './components/admin/author-update/author-update.component';
 import { CategoryUpdateComponent } from './components/category-update/category-update.component';
 import { BookDeleteComponent } from './components/book-delete/book-delete.component';
 import { BookUpdateComponent } from './components/book-update/book-update.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:BookComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path:"category/update",component:CategoryUpdateComponent},
   {path:"book/delete",component:BookDeleteComponent},
   {path:"book/update",component:BookUpdateComponent},
-  {path:"profile",component:UserProfileComponent}
+  {path:"profile",component:UserProfileComponent},
+  {path:"admin",component:AdminComponent}
 ];
 
 @NgModule({
