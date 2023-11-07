@@ -17,6 +17,7 @@ import { BookUpdateComponent } from './components/admin/book-update/book-update.
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuard } from './guards/admin.guard';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:BookComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path:"admin/book/update",component:BookUpdateComponent, canActivate:[LoginGuard, AdminGuard]},
   {path:"profile",component:UserProfileComponent, canActivate:[LoginGuard]},
   {path:"admin",component:AdminComponent, canActivate:[LoginGuard, AdminGuard]},
+  {path:"books/:bookId/reservation",component:ReservationComponent, canActivate:[LoginGuard]},
 ];
 
 @NgModule({

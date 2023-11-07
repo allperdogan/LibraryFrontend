@@ -11,7 +11,9 @@ import { BookService } from 'src/app/services/books/book.service';
 export class BookDetailComponent implements OnInit{
   book: Book;
   imagePath = "https://localhost:44304/BookImages";
-  
+  availability = true;
+  returnDate: Date;
+
   constructor(private bookService: BookService,private activatedRoute:ActivatedRoute){
     
   }
@@ -27,6 +29,18 @@ export class BookDetailComponent implements OnInit{
   getBookDetail(id:number){
     this.bookService.getBookDetail(id).subscribe((response) => {
       this.book = response.data;
+      console.log(this.book)
+      this.getAvailable(this.book.id);
     });
   }  
+
+  getAvailable(id:number){
+    this.bookService.getAvailable(id).subscribe((response) =>{
+      if(response.data.length>0){
+        this.availability = false;
+        this.returnDate = response.data[0].returnDate;
+      }
+    }
+    );
+  }
 }

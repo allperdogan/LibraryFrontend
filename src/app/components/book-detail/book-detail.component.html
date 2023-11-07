@@ -17,7 +17,8 @@
             <td>{{book.categoryName}}</td>
             <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
             <td>{{book.publishedYear}}</td>
-            <td><button class="btn btn-success">Rezervasyon oluştur</button></td>
+            <td><button [disabled]="!availability" class="btn btn-success" routerLink="reservation">Rezervasyon oluştur</button>
+                <p *ngIf="!availability">Kitap {{returnDate}} tarihine kadar müsait değil </p></td>
         </tr>
     </tbody>
 </table>

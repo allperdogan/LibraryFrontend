@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div *ngIf="book" class="card-header"><h5 class="title">{{book.bookName}} Rezervasyon yap</h5></div>
+            <div class="card-body">
+                <form  [formGroup]="reservationForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="reserveDate">Alış Tarihi</label>
+                            <input type="date" id="reserveDate" formControlName="reserveDate" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="returnDate">İade Tarihi</label>
+                            <input type="date" id="returnDate" formControlName="returnDate" class="form-control">
+                        </div>   
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="reserve()">Rezervasyon oluştur</button>
+            </div>
+    </div>
+</div>
+
+        

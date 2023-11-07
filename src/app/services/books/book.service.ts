@@ -32,6 +32,10 @@ export class BookService {
     return this.httpClient.get<SingleResponseModel<Book>>(newPath);
   }
 
+  getAvailable(id:number):Observable<ListResponseModel<Book>>{
+    return this.httpClient.post<ListResponseModel<Book>>(this.apiUrl+"books/getReservationStatus?id="+id,id);
+  }
+
   add(book:Book):Observable<ListResponseModel<Book>>{
     return this.httpClient.post<ListResponseModel<Book>>(this.apiUrl+"books/add",book);
   }

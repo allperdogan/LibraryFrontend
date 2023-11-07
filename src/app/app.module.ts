@@ -31,6 +31,7 @@ import { BookUpdateComponent } from './components/admin/book-update/book-update.
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PanelMenuModule } from 'primeng/panelmenu';
     BookDeleteComponent,
     BookUpdateComponent,
     UserProfileComponent,
-    AdminComponent
+    AdminComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
