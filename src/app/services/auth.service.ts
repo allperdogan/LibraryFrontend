@@ -33,4 +33,12 @@ export class AuthService {
       return false
     }
   }
+
+  isAdmin(){
+    if (this.localService.getItem("user_claim") && this.localService.getItem("user_details") && this.localService.getItem("token")) {
+      return true
+    }else{
+      return false
+    }
+  }
 }
