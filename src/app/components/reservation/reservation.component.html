@@ -1,25 +1,19 @@
-<div class="content">
-    <div class="col-md-12">
-        <div class="card">
-            <div *ngIf="book" class="card-header"><h5 class="title">{{book.bookName}} Rezervasyon yap</h5></div>
-            <div class="card-body">
-                <form  [formGroup]="reservationForm">
-                    <div class="form-group">
-                        <div class="mb-3">
-                            <label for="reserveDate">Alış Tarihi</label>
-                            <input type="date" id="reserveDate" formControlName="reserveDate" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label for="returnDate">İade Tarihi</label>
-                            <input type="date" id="returnDate" formControlName="returnDate" class="form-control">
-                        </div>   
-                    </div>
-                </form>
+<p-panel header="{{book.bookName}} Rezervasyon Yap" [style]="{'border-radius': '10px', 'box-shadow': '0 4px 8px rgba(0, 0, 0, 0.1)'}">
+    <div *ngIf="userLoaded">
+        <form [formGroup]="reservationForm" class="custom-form">
+            <div class="p-grid p-fluid">
+                <div class="p-col-12 p-md-6">
+                    <label for="reserveDate">Alış Tarihi</label>
+                    <p-calendar id="reserveDate" formControlName="reserveDate" [showIcon]="true" placeholder="Alış Tarihi" dateFormat="yy-mm-dd" [showTransitionOptions]="'0ms'"></p-calendar>
+                </div>
+                <div class="p-col-12 p-md-6">
+                    <label for="returnDate">İade Tarihi</label>
+                    <p-calendar id="returnDate" formControlName="returnDate" [showIcon]="true" placeholder="İade Tarihi" dateFormat="yy-mm-dd" [showTransitionOptions]="'0ms'"></p-calendar>
+                </div>
             </div>
-            <div class="card-footer">
-                <button class="btn btn-fill btn-primary" (click)="reserve()">Rezervasyon oluştur</button>
-            </div>
+        </form>
     </div>
-</div>
-
-        
+    <div class="card-footer p-text-end">
+        <button pButton type="button" label="Rezervasyon Oluştur" class="p-button p-button-rounded p-button-raised p-button-success" (click)="reserve()"></button>
+    </div>
+</p-panel>

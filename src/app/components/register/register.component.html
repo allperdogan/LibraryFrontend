@@ -1,34 +1,46 @@
 <body class="text-center">
-    <main class="form-signin w-100 m-auto">
-        <form [formGroup]="registerForm">
-          <!-- <img class="mb-4" src="" alt="" width="72" height="57"> -->
-          <h1 class="h3 mb-3 fw-normal">Kayıt ol</h1>
-          <div class="form-floating">
-            <input formControlName="firstName" type="firstName" class="form-control" id="floatingFirstName" placeholder="First Name">
-            <label for="floatingInput">First Name</label>
-          </div>
-          <div class="form-floating">
-            <input formControlName="lastName" type="lastName" class="form-control" id="floatingLastName" placeholder="Last Name">
-            <label for="floatingInput">Last Name</label>
-          </div>
-          <div class="form-floating">
-            <input formControlName="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
-            <label for="floatingInput">E-Mail</label>
-          </div>
-          <div class="form-floating">
-            <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Parola</label>
-          </div>
-          <div class="form-floating">
-            <input formControlName="passwordRepeat" type="passwordRepeat" class="form-control" id="floatingpasswordRepeat" placeholder="passwordRepeat">
-            <label for="floatingPassword">Parola Tekrar</label>
-          </div>
-      
-          <div class="form-check text-start my-3">
-          </div>
-          <button class="btn btn-primary w-100 py-2" type="submit" (click)="register()">Kayıt ol</button>
-          <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+    <main class="form-signin w-75 m-auto">
+        <form [formGroup]="registerForm" class="row g-3">
+            <div class="text-center">
+                <img class="mb-4" src="/assets/images/digitalibrary.jpg" alt="Digital Library Logo" width="150" height="150">
+            </div>
+            <h1 class="h3 mb-3 fw-normal">Kayıt ol</h1>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input formControlName="firstName" type="text" class="form-control" id="floatingFirstName" placeholder="First Name">
+                    <label for="floatingFirstName">First Name</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input formControlName="lastName" type="text" class="form-control" id="floatingLastName" placeholder="Last Name">
+                    <label for="floatingLastName">Last Name</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input formControlName="email" type="email" class="form-control" id="floatingEmail" placeholder="name@example.com">
+                    <label for="floatingEmail">E-Mail</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input formControlName="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Parola</label>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-floating">
+                    <input formControlName="passwordRepeat" type="password" class="form-control" id="floatingPasswordRepeat" placeholder="Password Repeat">
+                    <label for="floatingPasswordRepeat">Parola Tekrar</label>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary w-100 py-2" type="submit" (click)="register()">Kayıt ol</button>
+            </div>
+            <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
         </form>
-      </main>
-      <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </body>
+    </main>
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>

@@ -1,24 +1,26 @@
 <div class="content">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header"><h5 class="title">Kategori ekle</h5></div>
+            <div class="card-header bg-primary text-white">
+                <h5 class="title">Yeni Kategori Ekle</h5>
+            </div>
             <div class="card-body">
                 <form [formGroup]="categoryAddForm">
                     <div class="form-group">
                         <div class="mb-3">
-                            <label for="categoryName">Kategori adı</label>
-                            <!-- <input type="text" id="categoryName" formControlName="categoryName" class="form-control" placeholder="Kategori adı"> -->
-                            <input  id="categoryName" formControlName="categoryName" class="form-control" list=categories>
-                            <datalist  id="categories">
-                            <option *ngFor="let category of categories" value= {{category.categoryName}}></option>
+                            <label for="categoryName">Kategori Adı</label>
+                            <input id="categoryName" formControlName="categoryName" class="form-control" list="categories" placeholder="Kategori adı">
+                            <datalist id="categories">
+                                <option *ngFor="let category of categories" [value]="category.categoryName"></option>
                             </datalist>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="card-footer">
-                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+                <button class="btn btn-primary" (click)="add()">Ekle</button>
             </div>
         </div>
     </div>
 </div>
+

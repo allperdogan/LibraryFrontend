@@ -1,0 +1,13 @@
+.custom-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+::ng-deep .p-calendar {
+    width: 100%;
+}

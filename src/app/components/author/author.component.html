@@ -1,20 +1,13 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
+<p-progressSpinner *ngIf="!dataLoaded" class="p-spinner" strokeWidth="8" styleClass="custom-spinner"></p-progressSpinner>
+
+<div class="p-field">
+    <input type="text" pInputText [(ngModel)]="filterText" id="filterTextAuthor" placeholder="Yazar ara">
 </div>
 
-<ul class="list-group">
-    <h5 style="text-align: center;"> Yazarlar </h5> 
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Yazar ara</label>
-        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterTextAuthor" placeholder="arama ifadesi giriniz">
-    </div>
-    <li routerLink="/books"
-    (click)="setAllAuthor()" 
-    [class] = "getAllAuthorClass()">Tüm Yazarlar</li>
-    <li (click)="setCurrentAuthor(author)" 
-    routerLink="/books/author/{{author.authorId}}"
-    *ngFor="let author of authors |filterPipeAuthor:filterText"
-    [class]="getCurrentAuthorClass(author)">
+<ul class="p-list-group">
+    <li (click)="setAllAuthor()" [ngClass]="{'p-list-group-item': true, 'active': !currentAuthor}" routerLink="/books">Tüm Yazarlar</li>
+    <li *ngFor="let author of authors | filterPipeAuthor: filterText" (click)="setCurrentAuthor(author)"
+        [ngClass]="{'p-list-group-item': true, 'active': author === currentAuthor}" routerLink="/books/author/{{author.authorId}}">
         {{author.authorFirstName}} {{author.authorLastName}}
     </li>
 </ul>

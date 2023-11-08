@@ -30,29 +30,19 @@ export class ReservationComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.getUserByUserId()
-    this.activatedRoute.params.subscribe((params) => {
-      if (params['bookId']) {
-        this.getBookDetail(params['bookId']);
-      }
-    });
+    this.book = history.state.data;
+    this.getBookDetailsById(this.book.id);
+    this.getUserByUserId();
     this.createReservationForm();
   }
 
   createReservationForm(){
     this.reservationForm = this.formBuilder.group({
-      userId:[this.user.id],
-      bookId:[this.book.id],
+      userId:[null , Validators.required],
+      bookId:[null ,Validators.required],
       reserveDate:["",Validators.required],
       returnDate:["",Validators.required]
     })
-  }
-
-  getBookDetail(id:number){
-    this.bookService.getBookDetail(id).subscribe((response) => {
-      this.book = response.data;
-      this.bookLoaded = true;
-    });
   }
 
   getUserByUserId() {
@@ -61,7 +51,16 @@ export class ReservationComponent implements OnInit{
       console.log(response)
       this.user = response.data
       this.userLoaded = true;
+      this.setFormValues();
     })
+  }
+
+  getBookDetailsById(bookId: number) {
+    this.bookService.getBookDetail(bookId).subscribe((response) => {
+      this.book = response.data;
+      this.bookLoaded = true;
+      this.setFormValues();
+    });
   }
 
   reserve(){
@@ -79,6 +78,15 @@ export class ReservationComponent implements OnInit{
     }
     else{
       this.toastrService.error("Formunuz eksik","Dikkat")
+    }
+  }
+
+  setFormValues() {
+    if (this.userLoaded && this.bookLoaded) {
+      this.reservationForm.patchValue({
+        userId: this.user.id,
+        bookId: this.book.id,
+      });
     }
   }
   

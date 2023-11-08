@@ -1,29 +1,37 @@
-<div>
-    <h5 *ngIf="book">{{book.bookName}} kitabı hakkında</h5>
+<div class="book-details">
+    <h2 *ngIf="book" class="title">{{book.bookName}} Kitabı Hakkında</h2>
 </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Kitap</th>
-            <th>Kategori</th>
-            <th>Yazar</th>
-            <th>Yayınlanma tarihi</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngIf="book">
-            <td>{{book.bookName}}</td>
-            <td>{{book.categoryName}}</td>
-            <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
-            <td>{{book.publishedYear}}</td>
-            <td><button [disabled]="!availability" class="btn btn-success" routerLink="reservation">Rezervasyon oluştur</button>
-                <p *ngIf="!availability">Kitap {{returnDate}} tarihine kadar müsait değil </p></td>
-        </tr>
-    </tbody>
-</table>
-<div>
-    <h5>Özet</h5>
-    <p *ngIf="book">{{book.summary}}</p>
+<div class="book-info-table">
+    <p-table *ngIf="book" [value]="[book]" [paginator]="false">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Kitap</th>
+                <th>Kategori</th>
+                <th>Yazar</th>
+                <th>Yayınlanma Tarihi</th>
+                <th>Rezervasyon</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-book>
+            <tr>
+                <td>{{book.bookName}}</td>
+                <td>{{book.categoryName}}</td>
+                <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
+                <td>{{book.publishedYear}}</td>
+                <td>
+                    <button [disabled]="!availability" [ngClass]="{'btn': true, 'btn-success': availability, 'btn-danger': !availability}" (click)="toReservationPage()">
+                        Rezervasyon Oluştur
+                    </button>
+                    <p *ngIf="!availability" class="not-available">Kitap {{returnDate}} tarihine kadar müsait değil</p>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
-<img *ngIf="book" src="{{imagePath}}{{book.imagePath}}" alt="" width="200" height="300">
+<div class="book-summary">
+    <h3>Özet</h3>
+    <p *ngIf="book" class="summary">{{book.summary}}</p>
+</div>
+<div class="book-image">
+    <img *ngIf="book" [src]="imagePath + book.imagePath" alt="Book Cover" width="200" height="300">
+</div>

@@ -1,39 +1,89 @@
-<div>
-    <div class="container ">
-      <div class="row">
-        <div class="col-md-3">
-            <app-category></app-category>
-            <app-author></app-author>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PrimeNG Güzel Görünüm</title>
+  <!-- PrimeNG CSS dosyaları -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/primeicons/primeicons.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/primeng/resources/themes/saga-blue/theme.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/primeng/resources/primeng.min.css" />
+  <!-- Ek CSS stilleri -->
+  <style>
+    /* Özel stiller eklenebilir */
+    .custom-table-header {
+      background-color: #2980b9;
+      color: #ecf0f1;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .custom-input {
+      border: 1px solid #3498db;
+      border-radius: 5px;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      margin-top: 20px;
+    }
+
+    .book-row:hover {
+      background-color: #ecf0f1;
+      cursor: pointer;
+    }
+
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
+    }
+
+    /* Diğer özelleştirmeler buraya eklenebilir */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Burada PrimeNG bileşenleri kullanılabilir -->
+        <p-panel header="Kategori">
+          <app-category></app-category>
+        </p-panel>
+        <p-panel header="Yazar">
+          <app-author></app-author>
+        </p-panel>
+      </div>
+      <div class="col-md-9">
+        <div *ngIf="dataLoaded == false" class="loading">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
-        <div class="col-md-9">
-            <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <div>
-                <h5 class="text-center">Kitaplar</h5>
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Kitap ara</label>
-                <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="arama ifadesi giriniz">
-            </div>
-            <table class="table">
-                <thead *ngIf="dataLoaded==true">
-                    <tr>
-                        <th>Kitap</th>
-                        <th>Yazar</th>
-                        <th>Kategori</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr (click)="setCurrentBook(book)" *ngFor="let book of books | filterPipeBook:filterText" routerLink="/books/{{book.id}}">
-                        <td>{{book.bookName}}</td>
-                        <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
-                        <td>{{book.categoryName}}</td>
-                    </tr>
-                </tbody>  
-            </table>
-        </div>
+        <p-table [value]="books" *ngIf="dataLoaded == true">
+          <ng-template pTemplate="header">
+            <tr class="custom-table-header">
+              <th>Kitap</th>
+              <th>Yazar</th>
+              <th>Kategori</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-book>
+            <tr class="book-row" (click)="setCurrentBook(book)" routerLink="/books/{{book.id}}">
+              <td>{{book.bookName}}</td>
+              <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
+              <td>{{book.categoryName}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
       </div>
     </div>
   </div>
 
+  <!-- PrimeNG JS dosyaları -->
+  <script src="https://cdn.jsdelivr.net/npm/primevue/3.8.1/primevue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/primeicons/primeicons.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/primeng/primeng.js"></script>
+</body>
+</html>

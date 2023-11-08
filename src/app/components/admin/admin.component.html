@@ -1,8 +1,10 @@
-<div class="row">
-    <div class="col-3">
-        <p-panelMenu [model]="items" [style]="{'width':'300px'}" [multiple]="true"></p-panelMenu>
+<div class="d-flex justify-content-center ">
+    <div class="row w-100">
+        <div class="col-4">
+            <p-panelMenu [model]="items" [style]="{'width':'100%'}" [multiple]="true"></p-panelMenu>
+        </div>
+        <div class="col-8">
+            <router-outlet></router-outlet>
+        </div>
     </div>
-    <div class="col-9">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+</div>

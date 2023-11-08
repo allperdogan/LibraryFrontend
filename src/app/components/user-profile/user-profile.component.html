@@ -1,62 +1,53 @@
-<div class="container">
-    <div class="card" style="margin-top: 50px;">
-        <div class="card-header">
-            <h4 class="title">Bilgilerim</h4>
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-white bg-primary">
+            <h4 class="mb-0">Profil Bilgileri</h4>
         </div>
         <div class="card-body">
-            <div class="mb-3">
-                <h5  class="card-title">İsim-Soyisim</h5>
-                <p *ngIf="user" class="card-text">{{user.firstName}} {{user.lastName}}</p> 
+            <div class="mb-4">
+                <h5 class="card-title">İsim Soyisim</h5>
+                <p *ngIf="user" class="card-text">{{user.firstName}} {{user.lastName}}</p>
             </div>
-            <div class="mb-3">
-                <h5 class="card-title">Email</h5>
+            <div class="mb-4">
+                <h5 class="card-title">E-posta</h5>
                 <p *ngIf="user" class="card-text">{{user.email}}</p>
             </div>
         </div>
+        <div class="card-footer d-flex justify-content-end">
+            <button type="button" class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Bilgileri Güncelle
+            </button>
+        </div>
     </div>
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" style="margin-top: 30px; float: right;" data-bs-target="#exampleModal">
-        Güncelle
-      </button>
 </div>
-      
-<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+
+<!-- Güncelleme Modalı -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title" id="exampleModalLabel">Bilgilerini Güncelle</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="userUpdateForm" *ngIf="userUpdateForm">
-                    <div class="form-group">
-                        <label for="firstName">İsim :</label>
-                            <input 
-                            type="text"
-                            class="form-control" 
-                            formControlName="firstName" 
-                            id="firstName"
-                            placeholder="İsminizi giriniz">         
-                        <label for="lastName">Soyisim :</label>
-                            <input 
-                            type="text"
-                            class="form-control" 
-                            formControlName="lastName" 
-                            id="lastName"
-                            placeholder="Soyisiminizi giriniz"> 
-                        <label for="email">Email : </label>
-                            <input 
-                            type="text"
-                            class="form-control" 
-                            formControlName="email" 
-                            id="email"
-                            placeholder="Email adresinizi giriniz">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">İsim</label>
+                        <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="İsminizi giriniz">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Soyisim</label>
+                        <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Soyisminizi giriniz">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-posta</label>
+                        <input type="text" class="form-control" formControlName="email" id="email" placeholder="E-posta adresinizi giriniz">
                     </div>
                 </form>
             </div>
-        
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="updateUser()">Güncelle</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" (click)="updateUser()">Güncelle</button>
             </div>
         </div>
     </div>

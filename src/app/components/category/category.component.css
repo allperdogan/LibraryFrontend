@@ -1,0 +1,10 @@
+.p-list-group-item {
+    list-style-type: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.p-list-group-item:hover {
+    background-color: #f0f0f0; /* istediğiniz hover rengini burada belirleyebilirsiniz */
+}

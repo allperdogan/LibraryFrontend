@@ -31,7 +31,16 @@ import { BookUpdateComponent } from './components/admin/book-update/book-update.
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { PanelMenuModule } from 'primeng/panelmenu';
+import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { ListboxModule  } from 'primeng/listbox';
+import { CalendarModule } from 'primeng/calendar';
+import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { MyBooksComponent } from './components/my-books/my-books.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +66,8 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     BookUpdateComponent,
     UserProfileComponent,
     AdminComponent,
-    ReservationComponent
+    ReservationComponent,
+    MyBooksComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +79,15 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
-    PanelMenuModule
+    PanelMenuModule,
+    PanelModule,
+    TableModule,
+    ProgressSpinnerModule,
+    AutoCompleteModule,
+    ListboxModule,
+    CalendarModule,
+    CardModule,
+    DropdownModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}

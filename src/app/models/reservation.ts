@@ -1,7 +1,7 @@
 export interface Reservation{
     id:number
     userId:number;
-    bookId:string;
+    bookId:number;
     reserveDate:Date;
     returnDate:Date;
 }

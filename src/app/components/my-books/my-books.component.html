@@ -1,0 +1,30 @@
+<div class="col-md-9">
+    <div>
+        <h3 class="text-center mt-4">Kitap Rezervasyonları</h3>
+    </div>
+    <p-table *ngIf="dataLoaded && reservations" [value]="reservations" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 15]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Rezervasyon ID</th>
+                <th>Kitap Adı</th>
+                <th>Rezervasyon Başlangıç Tarihi</th>
+                <th>İade Tarihi</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-reservation>
+            <tr>
+                <td>{{reservation.id}}</td>
+                <td>{{ bookNames[reservation.bookId] }}</td>
+                <td>{{reservation.reserveDate | date: 'yyyy-MM-dd'}}</td>
+                <td>{{reservation.returnDate | date: 'yyyy-MM-dd'}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <div *ngIf="!dataLoaded" class="text-center mt-4">
+        <p-progressSpinner styleClass="spinner"></p-progressSpinner>
+        <p>Veriler yükleniyor...</p>
+    </div>
+    <div *ngIf="dataLoaded && (!reservations || reservations.length === 0)" class="text-center mt-4">
+        <p>Henüz rezervasyon yapılmamış.</p>
+    </div>
+</div>

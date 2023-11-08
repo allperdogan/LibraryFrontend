@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/books/book.service';
 
@@ -12,9 +12,9 @@ export class BookDetailComponent implements OnInit{
   book: Book;
   imagePath = "https://localhost:44304/BookImages";
   availability = true;
-  returnDate: Date;
+  returnDate: Date | string;
 
-  constructor(private bookService: BookService,private activatedRoute:ActivatedRoute){
+  constructor(private bookService: BookService,private activatedRoute:ActivatedRoute, private router:Router){
     
   }
 
@@ -36,11 +36,32 @@ export class BookDetailComponent implements OnInit{
 
   getAvailable(id:number){
     this.bookService.getAvailable(id).subscribe((response) =>{
-      if(response.data.length>0){
-        this.availability = false;
-        this.returnDate = response.data[0].returnDate;
+      if (response.data!=null) {
+        if(response.data.length>0){
+          this.availability = false;
+          this.returnDate = response.data[0].returnDate;
+          if (this.returnDate) {
+            const dateWithoutTime = new Date(this.returnDate);
+            const formattedDate = dateWithoutTime.toISOString().split('T')[0];
+            this.returnDate = formattedDate;
+          }
+        }
       }
+      
     }
     );
+  }
+
+  toReservationPage(){
+    this.router.navigate(["/reservation"],{state:{data:this.book}})
+  }
+
+  getButton(){
+    if(this.availability){
+      return "btn btn-success"
+    }
+    else{
+      return "btn btn-warning"
+    }
   }
 }

@@ -1,0 +1,49 @@
+/* Genel Sayfa Stilleri */
+.book-details {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.book-info-table {
+    margin-bottom: 30px;
+}
+
+.book-summary {
+    margin-bottom: 30px;
+}
+
+.book-image {
+    text-align: center;
+}
+
+/* Tablo ve Buton Stilleri */
+p-table .not-available {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+p-table .btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+p-table .btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+p-table .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+p-table .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

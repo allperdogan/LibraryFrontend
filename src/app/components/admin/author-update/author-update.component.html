@@ -6,25 +6,26 @@
                     <label for="authorId">Yazar</label>
                     <select class="form-control" id="authorId" formControlName="authorId" aria-label="Default select example">
                         <option selected disabled>Yazar seçiniz</option>
-                        <option *ngFor="let author of authors" value={{author.authorId}}>{{author.authorFirstName}} {{author.authorLastName}}</option>
+                        <option *ngFor="let author of authors" [value]="author.authorId">{{author.authorFirstName}} {{author.authorLastName}}</option>
                     </select>
                 </div>
             </div>
         </div>
     </form>
 </div>
+
 <div class="modal-footer">
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getById()">
         Güncelle
-    </button> 
+    </button>
 </div>
 
-<!--Update Modal-->
+<!-- Update Modal -->
 <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Yazarı Güncelle</h5>
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Yazarı Güncelle</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -32,26 +33,11 @@
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="authorId">Id:</label>
-                            <input 
-                            type="text" 
-                            id="authorId" 
-                            formControlName="authorId"
-                            class="form-control" 
-                            [placeholder]="authorId">
+                            <input type="text" id="authorId" formControlName="authorId" class="form-control" readonly [value]="authorId">
                             <label for="authorFirstName">Yazar ismi:</label>
-                            <input 
-                            type="text" 
-                            id="authorFirstName" 
-                            formControlName="authorFirstName"
-                            class="form-control" 
-                            [placeholder]="getFirstName()">
+                            <input type="text" id="authorFirstName" formControlName="authorFirstName" class="form-control" [placeholder]="getFirstName()">
                             <label for="authorLastName">Yazar soyismi:</label>
-                            <input 
-                            type="text" 
-                            id="authorLastName" 
-                            formControlName="authorLastName"
-                            class="form-control" 
-                            [placeholder]="getLastName()">
+                            <input type="text" id="authorLastName" formControlName="authorLastName" class="form-control" [placeholder]="getLastName()">
                         </div>
                     </div>
                 </form>
@@ -64,5 +50,4 @@
         </div>
     </div>
 </div>
-<!--Update Modal-->
-
+<!-- Update Modal -->

@@ -12,6 +12,9 @@ export class CategoryComponent {
   currentCategory: Category | undefined;
   filterText = "";
   dataLoaded = false;
+  filteredCategories: Category[] = [];
+  selectedCategory: Category | undefined;
+
   constructor(private categoryService: CategoryService) {
     
   }
@@ -19,11 +22,13 @@ export class CategoryComponent {
     this.getCategories();
   }
 
+
   getCategories() {
-    this.categoryService.getCategories().subscribe((response)=>{
-      this.categories  = response.data
+    this.categoryService.getCategories().subscribe((response) => {
+      this.categories = response.data;
+      this.filteredCategories = this.categories; // initial filteredCategories ayarlanıyor
       this.dataLoaded = true;
-    })
+    });
   }
 
   setCurrentCategory(category:Category){

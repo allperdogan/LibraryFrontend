@@ -1,0 +1,29 @@
+/* Navbar Tasarımı */
+.navbar {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown Stilleri */
+.dropdown-toggle {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.dropdown-toggle:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+}
+
+.dropdown-menu {
+    background-color: #6c757d;
+}
+
+.dropdown-item {
+    color: #fff;
+}
+
+.dropdown-item:hover {
+    background-color: #5a6268;
+    color: #fff;
+}

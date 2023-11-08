@@ -17,5 +17,9 @@ export class ReservationService {
   reserve(reservation:Reservation):Observable<ListResponseModel<Reservation>>{
     return this.httpClient.post<ListResponseModel<Reservation>>(this.apiUrl+"reservations/add",reservation);
   }
+
+  getByUserId(id:number):Observable<ListResponseModel<Reservation>>{
+    return this.httpClient.get<ListResponseModel<Reservation>>(this.apiUrl+"reservations/getbyuserid?id="+id);
+  }
   
 }
