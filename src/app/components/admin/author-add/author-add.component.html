@@ -1,24 +1,32 @@
 <div class="content">
     <div class="col-md-12">
-        <p-card>
-            <ng-template pTemplate="header">
-                <h2 style="text-align: center;">Yazar Ekle</h2>
-            </ng-template>
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="title">Yazar Ekle</h5>
+            </div>
             <div class="card-body">
-                <form [formGroup]="authorAddForm" class="p-fluid">
-                    <div class="p-field">
-                        <label for="authorFirstName">Yazar Adı</label>
-                        <input type="text" id="authorFirstName" formControlName="authorFirstName" class="p-inputtext p-component" style="width: 100%;">
-                    </div>
-                    <div class="p-field" style="margin-top: 15px;">
-                        <label for="authorLastName">Yazar Soyadı</label>
-                        <input type="text" id="authorLastName" formControlName="authorLastName" class="p-inputtext p-component" style="width: 100%;">
+                <form [formGroup]="authorAddForm">
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="authorFirstName">Yazar Adı</label>
+                            <input id="authorFirstName" formControlName="authorFirstName" class="form-control" list="authors" placeholder="Yazar adı">
+                            <datalist id="authors">
+                                <option *ngFor="let author of authors" [value]="author.authorFirstName"></option>
+                            </datalist>
+                        </div>
+                        <div class="mb-3">
+                            <label for="authorLastName">Yazar Soyadı</label>
+                            <input id="authorLastName" formControlName="authorLastName" class="form-control" list="lastNames" placeholder="Yazar soyadı">
+                            <datalist id="lastNames">
+                                <option *ngFor="let author of authors" [value]="author.authorLastName"></option>
+                            </datalist>
+                        </div>
                     </div>
                 </form>
             </div>
-            <div class="card-footer" style="display: flex; justify-content: center; margin-top: 15px;">
-                <button class="p-button p-button-raised p-button-primary" (click)="add()">Ekle</button>
+            <div class="card-footer">
+                <button class="btn btn-primary" (click)="add()">Ekle</button>
             </div>
-        </p-card>
+        </div>
     </div>
 </div>

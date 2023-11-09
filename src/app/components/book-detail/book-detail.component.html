@@ -1,37 +1,136 @@
-<div class="book-details">
-    <h2 *ngIf="book" class="title">{{book.bookName}} Kitabı Hakkında</h2>
-</div>
-<div class="book-info-table">
-    <p-table *ngIf="book" [value]="[book]" [paginator]="false">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Kitap</th>
-                <th>Kategori</th>
-                <th>Yazar</th>
-                <th>Yayınlanma Tarihi</th>
-                <th>Rezervasyon</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-book>
-            <tr>
-                <td>{{book.bookName}}</td>
-                <td>{{book.categoryName}}</td>
-                <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
-                <td>{{book.publishedYear}}</td>
-                <td>
-                    <button [disabled]="!availability" [ngClass]="{'btn': true, 'btn-success': availability, 'btn-danger': !availability}" (click)="toReservationPage()">
-                        Rezervasyon Oluştur
-                    </button>
-                    <p *ngIf="!availability" class="not-available">Kitap {{returnDate}} tarihine kadar müsait değil</p>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-</div>
-<div class="book-summary">
-    <h3>Özet</h3>
-    <p *ngIf="book" class="summary">{{book.summary}}</p>
-</div>
-<div class="book-image">
-    <img *ngIf="book" [src]="imagePath + book.imagePath" alt="Book Cover" width="200" height="300">
-</div>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitap Detayları</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .book-details {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .book-details .title {
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .book-info-table {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .book-info-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .book-info-table th, .book-info-table td {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .book-info-table th {
+            background-color: #f0f0f0;
+        }
+        .book-info-table td button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .book-info-table td button.btn-success {
+            background-color: #4caf50;
+            color: #fff;
+        }
+        .book-info-table td button.btn-danger {
+            background-color: #f44336;
+            color: #fff;
+        }
+        .book-info-table td .not-available {
+            color: #f44336;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        .book-summary {
+            margin-bottom: 20px;
+        }
+        .book-summary h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .book-summary .summary {
+            line-height: 1.6;
+        }
+        .book-image {
+            text-align: center;
+        }
+        .book-image img {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .book-details-container {
+        display: flex;
+        }
+
+        .book-summary, .book-image {
+            flex: 1;
+            margin-right: 12px; /* İstenirse boşluk ekleyebilirsiniz */
+        }
+
+        .book-image img {
+            max-width: 100%; /* Resimlerin taşmasını engeller */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="book-details">
+        <h2 *ngIf="book" class="title">{{book.bookName}} Kitabı Hakkında</h2>
+    </div>
+    <div class="book-info-table">
+        <table *ngIf="book">
+            <thead>
+                <tr>
+                    <th>Kitap</th>
+                    <th>Kategori</th>
+                    <th>Yazar</th>
+                    <th>Yayınlanma Tarihi</th>
+                    <th>Rezervasyon</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{book.bookName}}</td>
+                    <td>{{book.categoryName}}</td>
+                    <td>{{book.authorFirstName}} {{book.authorLastName}}</td>
+                    <td>{{book.publishedYear}}</td>
+                    <td>
+                        <button [disabled]="!availability" [ngClass]="{'btn': true, 'btn-success': availability, 'btn-danger': !availability}" (click)="toReservationPage()">
+                            Rezervasyon Oluştur
+                        </button>
+                        <p *ngIf="!availability" class="not-available">Kitap {{returnDate}} tarihine kadar müsait değil</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="book-details-container">
+        <div class="book-image">
+            <img *ngIf="book" [src]="imagePath + book.imagePath" alt="Book Cover" width="200" height="300">
+        </div>
+        <div class="book-summary">
+            <h3>Özet</h3>
+            <p *ngIf="book" class="summary">{{book.summary}}</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -9,9 +9,14 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/primeng/resources/primeng.min.css" />
   <!-- Ek CSS stilleri -->
   <style>
-    /* Özel stiller eklenebilir */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
     .custom-table-header {
-      background-color: #2980b9;
+      background-color: #3498db;
       color: #ecf0f1;
       text-transform: uppercase;
       font-weight: 600;
@@ -40,7 +45,40 @@
       height: 200px;
     }
 
-    /* Diğer özelleştirmeler buraya eklenebilir */
+    .p-panel {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .p-table {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .p-table thead {
+      background-color: #3498db;
+      color: #ecf0f1;
+    }
+
+    .p-table tbody tr:hover {
+      background-color: #ecf0f1;
+    }
+
+    .p-table th, .p-table td {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .p-table td {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .spinner-border {
+      color: #3498db;
+    }
   </style>
 </head>
 <body>
@@ -48,10 +86,10 @@
     <div class="row">
       <div class="col-md-3">
         <!-- Burada PrimeNG bileşenleri kullanılabilir -->
-        <p-panel header="Kategori">
+        <p-panel header="Kategori" class="p-panel">
           <app-category></app-category>
         </p-panel>
-        <p-panel header="Yazar">
+        <p-panel header="Yazar" class="p-panel">
           <app-author></app-author>
         </p-panel>
       </div>
@@ -61,7 +99,7 @@
             <span class="visually-hidden">Loading...</span>
           </div>
         </div>
-        <p-table [value]="books" *ngIf="dataLoaded == true">
+        <p-table [value]="books" *ngIf="dataLoaded == true" class="p-table">
           <ng-template pTemplate="header">
             <tr class="custom-table-header">
               <th>Kitap</th>
