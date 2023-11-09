@@ -3,7 +3,9 @@
         <div class="mb-3">
             <div class="form-group">
                 <div class="mb-3">
-                    <label for="id">Kitap</label>
+                    <div class="card-header bg-primary text-white">
+                        <label  for="id">Kitap</label>
+                    </div>  
                     <select class="form-control" id="id" formControlName="id" aria-label="Default select example">
                         <option selected disabled>Kitap seçiniz</option>
                         <option *ngFor="let book of books" value="{{book.id}}">{{book.bookName}}</option>

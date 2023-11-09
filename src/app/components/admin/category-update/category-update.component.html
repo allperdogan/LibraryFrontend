@@ -3,7 +3,8 @@
         <div class="mb-3">
             <div class="form-group">
                 <div class="mb-3">
-                    <label for="categoryId">Kategori</label>
+                    <div class="card-header bg-primary text-white"><label for="categoryId">Kategori</label></div>
+                    
                     <select class="form-control" id="categoryId" formControlName="categoryId" aria-label="Default select example">
                         <option selected disabled>Kategori seçiniz</option>
                         <option *ngFor="let category of categories" value={{category.categoryId}}>{{category.categoryName}}</option>

@@ -1,5 +1,5 @@
-<div class="col-md-9">
-    <div>
+<div class="col-md-12">
+    <div class="bg-primary text-white">
         <h3 class="text-center mt-4">Kitap Rezervasyonları</h3>
     </div>
     <p-table *ngIf="dataLoaded && reservations" [value]="reservations" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 15]">

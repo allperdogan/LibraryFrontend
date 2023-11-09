@@ -5,46 +5,12 @@
   <title>Kitap Sil</title>
   <!-- Bootstrap CSS dosyası -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
-    .card {
-      margin-top: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .card-header {
-      background-color: #3498db;
-      color: white;
-      padding: 15px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-    }
-    .card-body {
-      padding: 20px;
-    }
-    .form-group label {
-      font-weight: bold;
-    }
-    .btn-primary {
-      background-color: #3498db;
-      border: none;
-    }
-    .btn-primary:hover {
-      background-color: #2980b9;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
-          <div class="card-header"><h5 class="title">Kitap Sil</h5></div>
+          <div class="card-header bg-primary text-white"><h5 class="title">Kitap Sil</h5></div>
           <div class="card-body">
             <form [formGroup]="bookDeleteForm">
               <div class="form-group">
@@ -64,6 +30,5 @@
         </div>
       </div>
     </div>
-  </div>
 </body>
 </html>

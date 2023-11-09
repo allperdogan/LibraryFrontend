@@ -3,7 +3,7 @@
         <div class="mb-3">
             <div class="form-group">
                 <div class="mb-3">
-                    <label for="authorId">Yazar</label>
+                    <div class="card-header bg-primary text-white"><label for="authorId">Yazar</label></div>
                     <select class="form-control" id="authorId" formControlName="authorId" aria-label="Default select example">
                         <option selected disabled>Yazar seçiniz</option>
                         <option *ngFor="let author of authors" [value]="author.authorId">{{author.authorFirstName}} {{author.authorLastName}}</option>
