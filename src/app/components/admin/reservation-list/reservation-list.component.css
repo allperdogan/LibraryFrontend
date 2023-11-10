@@ -1,0 +1,32 @@
+.table-container {
+    margin-top: 20px; /* Tablonun üst kısmından biraz boşluk bırakır */
+  }
+  
+  .p-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .custom-table-header th {
+    background-color: #f2f2f2; /* Başlık arkaplan rengi */
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .book-row td {
+    border: 1px solid #ddd; /* Hücre kenarlıkları */
+    padding: 8px;
+  }
+  
+  .even-row {
+    background-color: #f9f9f9; /* Çift sıradaki arkaplan rengi */
+  }
+  
+  .odd-row {
+    background-color: #fff; /* Tek sıradaki arkaplan rengi */
+  }
+  
+  #filterTextReservation {
+    margin-bottom: 10px;
+  }
+  

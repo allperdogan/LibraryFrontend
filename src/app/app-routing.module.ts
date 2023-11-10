@@ -19,6 +19,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { MyBooksComponent } from './components/my-books/my-books.component';
+import { ReservationListComponent } from './components/admin/reservation-list/reservation-list.component';
 
 const routes: Routes = [
   {path:"",pathMatch:"full",component:BookComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
     {path:"book/delete",component:BookDeleteComponent},
     {path:"book/update",component:BookUpdateComponent},
     {path:"book/add",component:BookAddComponent},
+    {path:"reservation/list",component:ReservationListComponent},
     ]
   },
   {path:"reservation",component:ReservationComponent, canActivate:[LoginGuard]},

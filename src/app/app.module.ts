@@ -41,6 +41,8 @@ import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { MyBooksComponent } from './components/my-books/my-books.component';
+import { ReservationListComponent } from './components/admin/reservation-list/reservation-list.component';
+import { FilterPipeReservationPipe } from './pipes/filter-pipe-reservation.pipe';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { MyBooksComponent } from './components/my-books/my-books.component';
     UserProfileComponent,
     AdminComponent,
     ReservationComponent,
-    MyBooksComponent
+    MyBooksComponent,
+    ReservationListComponent,
+    FilterPipeReservationPipe
   ],
   imports: [
     BrowserModule,

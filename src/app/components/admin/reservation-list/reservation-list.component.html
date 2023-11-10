@@ -1,0 +1,29 @@
+<div class="p-field">
+    <input type="text" pInputText [(ngModel)]="filterText" id="filterTextReservation" placeholder="User Id ile ara">
+</div>
+
+<div class="table-container">
+  <table class="p-table">
+    <thead>
+      <tr class="custom-table-header">
+        <th>Id</th>
+        <th>User Id</th>
+        <th>Book Id</th>
+        <th>Rezervasyon Tarihi</th>
+        <th>İade Tarihi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="book-row" *ngFor="let reservation of reservations | filterPipeReservation: filterText; let even = even; let odd = odd" [class.even-row]="even" [class.odd-row]="odd">
+        <td>{{reservation.id}}</td>
+        <td>{{reservation.userId}}</td>
+        <td>{{reservation.bookId}}</td>
+        <td>{{reservation.reserveDate}}</td>
+        <td>{{reservation.returnDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+

@@ -8,6 +8,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent {
+  
   categories: Category[] = [];
   currentCategory: Category | undefined;
   filterText = "";
