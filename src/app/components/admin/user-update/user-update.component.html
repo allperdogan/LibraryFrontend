@@ -1,0 +1,28 @@
+<!-- reservation-update.component.html -->
+
+<div class="update-container">
+    <h2 class="update-header">Kullanıcı Güncelleme Ekranı</h2>
+  
+    <form [formGroup]="updateForm" class="update-form">
+      <div class="p-field">
+        <label for="firstName" class="update-label">Ad</label>
+        <input type="text" pInputText formControlName="firstName" id="firstName" placeholder="Ad" class="p-input"/>
+      </div>
+  
+      <div class="p-field">
+        <label for="lastName" class="update-label">Soyad</label>
+        <input type="text" pInputText formControlName="lastName" id="lastName" placeholder="Soyad" class="p-input"/>
+      </div>
+
+      <div class="p-field">
+        <label for="eMail" class="update-label">Mail Adresi</label>
+        <input type="text" pInputText formControlName="eMail" id="eMail" placeholder="E-Mail" class="p-input"/>
+      </div>
+  
+      <div class="p-field update-buttons">
+        <button pButton type="button" label="Güncelle" class="p-button p-button-raised p-button-success" (click)="updateUser()"></button>
+        <button pButton type="button" label="İptal" class="p-button p-button-raised p-button-secondary" (click)="onNoClick()"></button>
+      </div>
+    </form>
+  </div>
+  

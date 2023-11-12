@@ -18,6 +18,10 @@ export class ReservationService {
     return this.httpClient.post<ListResponseModel<Reservation>>(this.apiUrl+"reservations/add",reservation);
   }
 
+  deleteReservation(reservation:Reservation):Observable<ListResponseModel<Reservation>>{
+    return this.httpClient.post<ListResponseModel<Reservation>>(this.apiUrl+"reservations/delete",reservation);
+  }
+
   getByUserId(id:number):Observable<ListResponseModel<Reservation>>{
     return this.httpClient.get<ListResponseModel<Reservation>>(this.apiUrl+"reservations/getbyuserid?id="+id);
   }
@@ -26,4 +30,8 @@ export class ReservationService {
     return this.httpClient.get<ListResponseModel<Reservation>>(this.apiUrl+"reservations/getall");
   }
   
+  updateReservation(reservation:Reservation):Observable<ListResponseModel<Reservation>>{
+    return this.httpClient.post<ListResponseModel<Reservation>>(this.apiUrl+"reservations/update",reservation);
+  }
+
 }

@@ -71,13 +71,9 @@ export class AdminComponent implements OnInit {
 
       items: [ 
         { 
-          label: 'Sil',
-          routerLink: ["user/delete"]
-        }, 
-        { 
-          label: 'Yetki işlemleri',
-          routerLink: ["user/claim"]
-        } 
+          label: 'Listele',
+          routerLink: ["user/list"]
+        }
       ] 
     }, 
     { 
@@ -87,15 +83,7 @@ export class AdminComponent implements OnInit {
         { 
           label: 'Listele',
           routerLink: ["reservation/list"]
-        }, 
-        { 
-          label: 'Sil',
-          routerLink: ["reservation/delete"]
-        }, 
-        { 
-          label: 'Güncelle',
-          routerLink: ["reservation/update"]
-        } 
+        }
       ] 
     } 
   ]; 

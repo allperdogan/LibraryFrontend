@@ -1,0 +1,39 @@
+/* reservation-update.component.css */
+
+.update-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update-header {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .update-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .update-label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+  }
+  
+  .p-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .update-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  

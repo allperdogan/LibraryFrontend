@@ -1,0 +1,30 @@
+<div class="table-container">
+    <table class="p-table">
+      <thead>
+        <tr class="custom-table-header">
+          <th>Id</th>
+          <th>Kullanıcı Adı</th>
+          <th>Kullanıcı Soyadı</th>
+          <th>Kullanıcı Mail</th>
+          <th>İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="user-row" *ngFor="let user of users | filterPipeUser: filterText; let even = even; let odd = odd"
+          [class.even-row]="even" [class.odd-row]="odd">
+          <td>{{user.id}}</td>
+          <td>{{user.firstName}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button pButton type="button" label="Sil" icon="pi pi-trash" class="p-button p-button-danger" (click)="deleteUser(user)"></button>
+            <button pButton type="button" label="Güncelle" icon="pi pi-pencil" class="p-button p-button-info" (click)="openUpdateDialog(user)"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+
+

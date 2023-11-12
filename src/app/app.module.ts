@@ -14,6 +14,7 @@ import { FilterPipeCategoryPipe } from './pipes/filter-pipe-category.pipe';
 import { FilterPipeAuthorPipe } from './pipes/filter-pipe-author.pipe';
 import { FilterPipeBookPipe } from './pipes/filter-pipe-book.pipe';
 import { BookAddComponent } from './components/admin/book-add/book-add.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -43,6 +44,10 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { ReservationListComponent } from './components/admin/reservation-list/reservation-list.component';
 import { FilterPipeReservationPipe } from './pipes/filter-pipe-reservation.pipe';
+import { ReservationUpdateComponent } from './components/admin/reservation-update/reservation-update.component';
+import { UserListComponent } from './components/admin/user-list/user-list.component';
+import { FilterPipeUserPipe } from './pipes/filter-pipe-user.pipe';
+import { UserUpdateComponent } from './components/admin/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +76,11 @@ import { FilterPipeReservationPipe } from './pipes/filter-pipe-reservation.pipe'
     ReservationComponent,
     MyBooksComponent,
     ReservationListComponent,
-    FilterPipeReservationPipe
+    FilterPipeReservationPipe,
+    ReservationUpdateComponent,
+    UserListComponent,
+    FilterPipeUserPipe,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +100,8 @@ import { FilterPipeReservationPipe } from './pipes/filter-pipe-reservation.pipe'
     ListboxModule,
     CalendarModule,
     CardModule,
-    DropdownModule
+    DropdownModule,
+    MatDialogModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}

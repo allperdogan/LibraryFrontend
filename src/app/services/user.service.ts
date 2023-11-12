@@ -37,4 +37,17 @@ export class UserService {
     let apiUrl = this.apiUrl + "users/update"
     return this.httpClient.post<ResponseModel>(apiUrl , userForUpdateDto)
   }
+
+  getAll():Observable<ListResponseModel<User>>{
+    return this.httpClient.get<ListResponseModel<User>>(this.apiUrl+"users/getall");
+  }
+
+  deleteUser(user:User):Observable<ListResponseModel<User>>{
+    return this.httpClient.post<ListResponseModel<User>>(this.apiUrl+"users/delete",user);
+  }
+
+  updateUser(user:User):Observable<ListResponseModel<User>>{
+    return this.httpClient.post<ListResponseModel<User>>(this.apiUrl+"users/update",user);
+  }
+
 }

@@ -1,0 +1,25 @@
+<!-- reservation-update.component.html -->
+
+<div class="update-container">
+    <h2 class="update-header">Rezervasyon Güncelleme Ekranı</h2>
+  
+    <form [formGroup]="updateForm" class="update-form">
+      <div class="p-field">
+        <label for="reserveDate" class="update-label">Rezervasyon Tarihi</label>
+        <input type="text" pInputText formControlName="reserveDate" id="reserveDate" placeholder="Rezervasyon Tarihi" class="p-input"/>
+      </div>
+  
+      <div class="p-field">
+        <label for="returnDate" class="update-label">İade Tarihi</label>
+        <input type="text" pInputText formControlName="returnDate" id="returnDate" placeholder="İade Tarihi" class="p-input"/>
+      </div>
+  
+      <!-- Diğer form alanlarını ekleyebilirsiniz -->
+  
+      <div class="p-field update-buttons">
+        <button pButton type="button" label="Güncelle" class="p-button p-button-raised p-button-success" (click)="updateReservation()"></button>
+        <button pButton type="button" label="İptal" class="p-button p-button-raised p-button-secondary" (click)="onNoClick()"></button>
+      </div>
+    </form>
+  </div>
+  
