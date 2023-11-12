@@ -13,6 +13,7 @@ export class BookDetailComponent implements OnInit{
   imagePath = "https://localhost:44304/BookImages";
   availability = true;
   returnDate: Date | string;
+  defaultImagePath = 'assets/images/default-book-cover.jpg';
 
   constructor(private bookService: BookService,private activatedRoute:ActivatedRoute, private router:Router){
     
@@ -29,6 +30,9 @@ export class BookDetailComponent implements OnInit{
   getBookDetail(id:number){
     this.bookService.getBookDetail(id).subscribe((response) => {
       this.book = response.data;
+      if (!this.book.imagePath) {
+        this.book.imagePath = this.defaultImagePath;
+      }
       console.log(this.book)
       this.getAvailable(this.book.id);
     });

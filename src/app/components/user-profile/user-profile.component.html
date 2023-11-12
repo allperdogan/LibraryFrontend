@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="card">
         <div class="card-header text-white bg-primary">
-            <h4 class="mb-0">Profil Bilgileri</h4>
+            <h4 class="mb-0" class="modal-title" style="font-size: 1.5rem;">Profil Bilgileri</h4>
         </div>
         <div class="card-body">
             <div class="mb-4">
@@ -21,16 +21,15 @@
     </div>
 </div>
 
-<!-- Güncelleme Modalı -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="exampleModalLabel">Bilgilerini Güncelle</h5>
+                <h5 class="modal-title" id="exampleModalLabel" style="font-size: 1.5rem;">Bilgilerini Güncelle</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="userUpdateForm" *ngIf="userUpdateForm">
+                <form [formGroup]="userUpdateForm" *ngIf="userUpdateForm" class="p-4">
                     <div class="mb-3">
                         <label for="firstName" class="form-label">İsim</label>
                         <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="İsminizi giriniz">

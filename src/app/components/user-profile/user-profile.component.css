@@ -1,29 +1,46 @@
-/* Özel Tasarımlar */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container {
+    margin-top: 50px;
+}
+
 .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .card-header {
-    border-radius: 15px 15px 0 0;
+    background-color: #3498db;
+    border-bottom: none;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
 }
 
-.card-footer {
-    border-radius: 0 0 15px 15px;
+.card-header h4 {
+    color: #fff;
+    font-size: 1.5rem;
 }
 
-/* Modal Tasarımı */
-.modal-content {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.card-body {
+    padding: 20px;
 }
 
-.modal-header {
-    border-radius: 15px 15px 0 0;
+.card-title {
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
-.modal-footer {
-    border-radius: 0 0 15px 15px;
+.card-text {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 15px;
 }
 
 .btn-success {
@@ -31,7 +48,40 @@
     border-color: #28a745;
 }
 
-.btn-success:hover {
-    background-color: #218838;
-    border-color: #218838;
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    background-color: #3498db;
+    border-bottom: none;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-header h5 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    margin-bottom: 15px;
 }

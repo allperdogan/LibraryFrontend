@@ -20,6 +20,7 @@ export class BookUpdateComponent implements OnInit{
   categories: Category[] = [];
   authors: Author[] = [];
   bookId: number | undefined;
+  selectedBook: Book | undefined;
 
   constructor(private formBuilder:FormBuilder, private bookService:BookService, 
     private toastrService:ToastrService, private categoryService:CategoryService,
@@ -63,16 +64,16 @@ export class BookUpdateComponent implements OnInit{
 
   update(){
     if(this.bookUpdateForm.valid){
-      let bookModel = Object.assign({},this.bookUpdateForm.value)
-      this.bookService.update(bookModel).subscribe(response=>{
-        this.toastrService.success(response.message,"Başarılı")
-      },responseError=>{
-        if(responseError.error.Errors.length>0){
+      let bookModel = Object.assign({}, this.bookUpdateForm.value);
+      this.bookService.update(bookModel).subscribe(response => {
+        this.toastrService.success(response.message, "Başarılı");
+      }, responseError => {
+        if (responseError.error.Errors.length > 0) {
           for (let i = 0; i < responseError.error.Errors.length; i++) {
-            this.toastrService.error(responseError.error.Errors[i].ErrorMessage,"Doğrulama hatası")
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage, "Doğrulama hatası");
           }
         }
-      })
+      });
     }
     else{
       this.toastrService.error("Formunuz eksik","Dikkat")
@@ -82,6 +83,18 @@ export class BookUpdateComponent implements OnInit{
   getById(){
     let bookModel = Object.assign({},this.bookUpdateForm.value)
     this.bookId = this.books.find(x=>x.id==bookModel.id)?.id;
+    // Kitap varsa, formu doldur
+    if (this.bookId) {
+      this.selectedBook  = this.books.find(x => x.id == this.bookId);
+      this.bookUpdateForm.patchValue({
+        id: this.selectedBook?.id,
+        categoryId: this.selectedBook?.categoryId,
+        authorId: this.selectedBook?.authorId,
+        bookName: this.selectedBook?.bookName,
+        publishedYear: this.selectedBook?.publishedYear,
+        summary: this.selectedBook?.summary
+      });
+    }
   }
 
   getBookName():String | undefined{

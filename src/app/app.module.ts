@@ -48,6 +48,8 @@ import { ReservationUpdateComponent } from './components/admin/reservation-updat
 import { UserListComponent } from './components/admin/user-list/user-list.component';
 import { FilterPipeUserPipe } from './pipes/filter-pipe-user.pipe';
 import { UserUpdateComponent } from './components/admin/user-update/user-update.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { UserUpdateComponent } from './components/admin/user-update/user-update.
     ReservationUpdateComponent,
     UserListComponent,
     FilterPipeUserPipe,
-    UserUpdateComponent
+    UserUpdateComponent,
+    ChangePasswordComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

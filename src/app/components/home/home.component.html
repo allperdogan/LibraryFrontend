@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalibrary - Dijital Kütüphane</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px; /* Genişliği artırdık */
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px; /* Padding'i artırdık */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative; /* Pozisyon ekledik */
+        }
+        .logo {
+            text-align: center; /* Logoyu ortala */
+            margin-bottom: 20px; /* Alt boşluğu artır */
+    
+        }
+        h1, p {
+            text-align: center;
+            color: #333;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px; /* Mesafeyi artırdık */
+        }
+        .feature {
+            text-align: center;
+            cursor: pointer; /* Kursor değiştirme ekledik */
+            width: 300px; /* Genişliği artırdık */
+        }
+        .feature img {
+            width: 200px; /* Genişliği artırdık */
+            height: 200px; /* Yüksekliği artırdık */
+            margin-bottom: 20px; /* Alt boşluğu artırdık */
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease; /* Animasyon ekledik */
+        }
+        .feature img:hover {
+            transform: scale(1.1); /* Hover etkisi ekledik */
+        }
+        .cta {
+            text-align: center;
+            margin-top: 50px; /* Mesafeyi artırdık */
+        }
+        .cta a {
+            display: inline-block;
+            padding: 16px 32px; /* Buton boyutunu artırdık */
+            background-color: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .cta a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img width="200px" height="200px"  src="assets/images/digitalibrary.jpg" alt="Digitalibrary Logo"> <!-- Logo ekledik -->
+        </div>
+        <p>Kitap okuma keyfinizi dijital dünyaya taşıyın! Digitalibrary ile geniş kitap koleksiyonumuzu keşfedin, kitap özetlerini okuyun, istediğiniz tarihlerde kitapları rezerve edin ve okuma deneyiminizi daha da zenginleştirin.</p>
+
+        <div class="features">
+            <div class="feature" onclick="animateImage(this)">
+                <img src="assets/images/list.jpeg" alt="Kitap Listesi">
+                <p>Geniş kitap koleksiyonunu keşfedin</p>
+            </div>
+            <div class="feature" onclick="animateImage(this)">
+                <img src="assets/images/reserve.jpeg" alt="Rezervasyon Yap">
+                <p>Kitapları istediğiniz tarihlerde rezerve edin</p>
+            </div>
+            <div class="feature" onclick="animateImage(this)">
+                <img src="assets/images/manage.jpg" alt="Yönetim Paneli">
+                <p>Rezervasyonlarınızı yönetmek için kullanıcı panelini kullanın</p>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="books">Hemen Başla</a>
+        </div>
+    </div>
+
+    <script>
+        function animateImage(element) {
+            element.querySelector('img').style.animation = 'spin 1s linear infinite'; // Özel bir dönme animasyonu ekledik
+            setTimeout(() => {
+                element.querySelector('img').style.animation = ''; // Animasyonu sıfırladık
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

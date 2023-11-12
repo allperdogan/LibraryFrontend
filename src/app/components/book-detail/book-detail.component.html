@@ -125,8 +125,14 @@
     </div>
     <div class="book-details-container">
         <div class="book-image">
-            <img *ngIf="book" [src]="imagePath + book.imagePath" alt="Book Cover" width="200" height="300">
-        </div>
+            <img
+              *ngIf="book"
+              [src]="book.imagePath ? (imagePath + book.imagePath) : defaultImagePath"
+              alt="Book Cover"
+              width="200"
+              height="300"
+            />
+          </div>
         <div class="book-summary">
             <h3>Özet</h3>
             <p *ngIf="book" class="summary">{{book.summary}}</p>

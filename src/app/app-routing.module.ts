@@ -21,9 +21,11 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { MyBooksComponent } from './components/my-books/my-books.component';
 import { ReservationListComponent } from './components/admin/reservation-list/reservation-list.component';
 import { UserListComponent } from './components/admin/user-list/user-list.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path:"",pathMatch:"full",component:BookComponent},
+  {path:"",pathMatch:"full",component:HomeComponent},
   {path:"books",component:BookComponent},
   {path:"books/:bookId",component:BookDetailComponent},
   {path:"books/category/:categoryId",component:BookComponent},
@@ -48,6 +50,8 @@ const routes: Routes = [
   },
   {path:"reservation",component:ReservationComponent, canActivate:[LoginGuard]},
   {path:"mybooks",component:MyBooksComponent, canActivate:[LoginGuard]},
+  {path:"change-password",component:ChangePasswordComponent, canActivate:[LoginGuard]},
+  {path:"home",component:HomeComponent},
 ];
 
 @NgModule({

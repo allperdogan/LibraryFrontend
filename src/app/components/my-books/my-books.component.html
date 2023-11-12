@@ -1,30 +1,91 @@
-<div class="col-md-12">
-    <div class="bg-primary text-white">
-        <h3 class="text-center mt-4">Kitap Rezervasyonları</h3>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Rezervasyonları</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://primefaces.org/primeng/resources/themes/bootstrap4-light-blue/theme.css" />
+    <link rel="stylesheet" href="https://primefaces.org/primeng/resources/primeng.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+        .header h3 {
+            font-size: 1.5rem; /* veya istediğiniz büyüklükte bir değer */
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        h3 {
+            margin: 0;
+        }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+        .spinner-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .no-reservations {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3 class="mt-4">Kitap Rezervasyonları</h3>
+        </div>
+
+        <div class="table-container">
+            <p-table *ngIf="dataLoaded && reservations" [value]="reservations" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 15]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Rezervasyon ID</th>
+                        <th>Kitap Adı</th>
+                        <th>Rezervasyon Başlangıç Tarihi</th>
+                        <th>İade Tarihi</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-reservation>
+                    <tr>
+                        <td>{{reservation.id}}</td>
+                        <td>{{ bookNames[reservation.bookId] }}</td>
+                        <td>{{reservation.reserveDate | date: 'yyyy-MM-dd'}}</td>
+                        <td>{{reservation.returnDate | date: 'yyyy-MM-dd'}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <div *ngIf="!dataLoaded" class="spinner-container">
+            <p-progressSpinner styleClass="spinner"></p-progressSpinner>
+            <p>Veriler yükleniyor...</p>
+        </div>
+
+        <div *ngIf="dataLoaded && (!reservations || reservations.length === 0)" class="no-reservations">
+            <p>Henüz rezervasyon yapılmamış.</p>
+        </div>
     </div>
-    <p-table *ngIf="dataLoaded && reservations" [value]="reservations" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 15]">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Rezervasyon ID</th>
-                <th>Kitap Adı</th>
-                <th>Rezervasyon Başlangıç Tarihi</th>
-                <th>İade Tarihi</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-reservation>
-            <tr>
-                <td>{{reservation.id}}</td>
-                <td>{{ bookNames[reservation.bookId] }}</td>
-                <td>{{reservation.reserveDate | date: 'yyyy-MM-dd'}}</td>
-                <td>{{reservation.returnDate | date: 'yyyy-MM-dd'}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
-    <div *ngIf="!dataLoaded" class="text-center mt-4">
-        <p-progressSpinner styleClass="spinner"></p-progressSpinner>
-        <p>Veriler yükleniyor...</p>
-    </div>
-    <div *ngIf="dataLoaded && (!reservations || reservations.length === 0)" class="text-center mt-4">
-        <p>Henüz rezervasyon yapılmamış.</p>
-    </div>
-</div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
