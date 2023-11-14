@@ -36,7 +36,19 @@ JWT
 
 ## Ekran Görüntüleri
 
-![Uygulama Ekran Görüntüsü](https://i.ibb.co/mzjm5ZR/homepage.png)
+![Anasayfa](https://i.ibb.co/mzjm5ZR/homepage.png)
+![Giriş](https://i.ibb.co/m6d0Fbw/login.png)
+![Kayıt](https://i.ibb.co/jD7kfzb/register.png)
+![Kitap Listesi](https://i.ibb.co/ThZp4b6/books.png)
+![Kitap Detayları](https://i.ibb.co/hD6wWhn/bookdetail.png)
+![Rezervasyon](https://i.ibb.co/Z8xJZXP/rezervation.png)
+![Kitaplarım](https://i.ibb.co/pwRSY13/mybooks.png)
+![Profil](https://i.ibb.co/WB4tyvX/profile.png)
+![Profil Düzenle](https://i.ibb.co/zhJ3Pwt/profileedit.png)
+![Admin-Kitap Ekle](https://i.ibb.co/0YZprD1/adminbook.png)
+![Admin-Rezervasyonlar](https://i.ibb.co/m8Tgcsh/adminreservations.png)
+![Admin-Kullanıcılar](https://i.ibb.co/j4rxSyn/users.png)
+
 
 # Admin Paneli
 
