@@ -35,8 +35,31 @@ Pipe /
 JWT
 
 ## Ekran Görüntüleri
+**Anasayfa:** 
+![Anasayfa](https://i.ibb.co/mzjm5ZR/homepage.png)
+**Giriş:** 
+![Giriş](https://i.ibb.co/m6d0Fbw/login.png)
+**Kayıt:** 
+![Kayıt](https://i.ibb.co/jD7kfzb/register.png)
+**Kitap Listesi:** 
+![Kitap Listesi](https://i.ibb.co/ThZp4b6/books.png)
+**Kitap Detayları:** 
+![Kitap Detayları](https://i.ibb.co/hD6wWhn/bookdetail.png)
+**Rezervasyon:** 
+![Rezervasyon](https://i.ibb.co/Z8xJZXP/rezervation.png)
+**Kitaplarım:** 
+![Kitaplarım](https://i.ibb.co/pwRSY13/mybooks.png)
+**Profil:** 
+![Profil](https://i.ibb.co/WB4tyvX/profile.png)
+**Profil Düzenle:** 
+![Profil Düzenle](https://i.ibb.co/zhJ3Pwt/profileedit.png)
+**Admin-Kitap Ekle:** 
+![Admin-Kitap Ekle](https://i.ibb.co/0YZprD1/adminbook.png)
+**Admin-Rezervasyonlar:** 
+![Admin-Rezervasyonlar](https://i.ibb.co/m8Tgcsh/adminreservations.png)
+**Admin-Kullanıcılar:** 
+![Admin-Kullanıcılar](https://i.ibb.co/j4rxSyn/users.png)
 
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 # Admin Paneli
 
