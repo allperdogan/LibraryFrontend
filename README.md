@@ -36,7 +36,7 @@ JWT
 
 ## Ekran Görüntüleri
 
-![Uygulama Ekran Görüntüsü](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Uygulama Ekran Görüntüsü](https://i.ibb.co/mzjm5ZR/homepage.png)
 
 # Admin Paneli
 
